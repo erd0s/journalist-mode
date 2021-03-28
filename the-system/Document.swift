@@ -9,7 +9,7 @@ import Cocoa
 
 class Document: NSDocument {
     
-    @objc var content = Content(doing: "Doing (placeholder)", todo: "Todo (placeholder)", distractions: "Distractions (placeholder)")
+    @objc var content = Content(doing: "", todo: "", distractions: "")
     var doingWindowController: DoingWindowController!
     var todoWindowController: TodoWindowController!
     var distractionsWindowController: DistractionsWindowController!

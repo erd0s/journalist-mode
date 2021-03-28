@@ -46,4 +46,11 @@ class DocumentController: NSDocumentController {
             print("hmmm")
         }
     }
+    
+    override func openUntitledDocumentAndDisplay(_ displayDocument: Bool) throws -> NSDocument {
+        documents.forEach { (document) in
+            document.close()
+        }
+        return try super.openUntitledDocumentAndDisplay(true)
+    }
 }

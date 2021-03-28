@@ -9,33 +9,52 @@ class DoingTextView: TextView {
         if event.keyCode == kVK_Return && event.modifierFlags.contains(NSEvent.ModifierFlags.shift) {
             completeTask()
         } else if event.keyCode == kVK_Return {
-            newTask()
-            super.keyDown(with: event)
+            newTask(with: event)
         } else {
             super.keyDown(with: event)
         }
     }
     
-    func newTask() {
-        // Check if the line they've got selected already has a strikethrough on it
-        var lineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
-        while isLineCompleted(range: lineRange) {
-            lineRange = previousLineRangeOrNil(selection: lineRange)!
-        }
+    func newTask(with event: NSEvent) {
+        var currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
         
-        var indent: CGFloat = 0.0
-        textStorage?.enumerateAttribute(.paragraphStyle, in: lineRange, options: [], using: { (something, someRange, somethingElse) in
-            if something != nil {
-                indent = (something as! NSParagraphStyle).headIndent
-            }
-        })
-        indent = indent + 15.0
-        
+        var linesAhead = getAllLinesAhead()
+
         let style = NSMutableParagraphStyle()
-        style.firstLineHeadIndent = indent
-        style.headIndent = indent
         
-        typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+        if linesAhead.count > 0 && areAllLinesComplete(lines: linesAhead) && !isLineCompleted(range: currentLineRange) {
+            // They're at the last task in the stack and there's other completed tasks further down the page
+            
+            let indent: CGFloat = getCurrentLineIndent() + 15.0
+            
+            // Skipping to the end of the document
+            setSelectedRange(NSRange(location: string.count, length: 0))
+            style.firstLineHeadIndent = indent
+            style.headIndent = indent
+            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+            super.keyDown(with: event)
+        } else if linesAhead.count > 0 {
+            // They're not at the last task in the stack, find that position and move them there
+            
+            // Skip to the top of the stack
+            let topOfStack = getTopOfStackRange()
+            
+            let indent: CGFloat = getLineIndent(attributedString: attributedString().attributedSubstring(from: topOfStack)) + 15.0
+            style.firstLineHeadIndent = indent
+            style.headIndent = indent
+            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+            
+            setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length + 1, length: 0))
+        } else {
+            // They're at the last position in the stack and there's no tasks further down the page
+            
+            let indent: CGFloat = getCurrentLineIndent() + 15.0
+            style.firstLineHeadIndent = indent
+            style.headIndent = indent
+            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+            
+            super.keyDown(with: event)
+        }
     }
     
     func completeTask() {
@@ -52,30 +71,5 @@ class DoingTextView: TextView {
         // Put the cursor at the end of the previous line
         let previousLineRange = NSRange(location: lineRange.location, length: 0)
         setSelectedRange(previousLineRange)
-    }
-    
-    // MARK: - Helper functions
-    
-    private func isLineCompleted(range: NSRange) -> Bool {
-        var isCompleted = false
-        textStorage?.enumerateAttribute(.strikethroughStyle, in: range, options: [], using: { (value, range, whatever) in
-            if value != nil {
-                if let x = value as? Int {
-                    if x != 0 {
-                        isCompleted = true
-                    }
-                }
-            }
-        })
-        
-        return isCompleted
-    }
-    
-    private func previousLineRangeOrNil(selection: NSRange) -> NSRange? {
-        if selection.location == 0 {
-            return nil
-        }
-        let previousLineEnd = NSRange(location: selection.location-1, length: 0)
-        return getLineRange(string: string as NSString, selectedRange: previousLineEnd)
     }
 }

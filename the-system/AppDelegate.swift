@@ -27,5 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldOpenUntitledFile(_ sender: NSApplication) -> Bool {
         return false
     }
+    
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        return false
+    }
+    
+    func applicationOpenUntitledFile(_ sender: NSApplication) -> Bool {
+        return false
+    }
 }
 
