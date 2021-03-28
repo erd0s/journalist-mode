@@ -20,34 +20,28 @@ class Document: NSDocument {
     }
 
     override class var autosavesInPlace: Bool {
-        return true
+        return false
     }
     
     func enableWindow(type: SystemPart) {
         doingWindowController.showWindow(nil)
         todoWindowController.showWindow(nil)
         distractionsWindowController.showWindow(nil)
-//        doingWindowController.deselected()
-//        todoWindowController.deselected()
-//        distractionsWindowController.deselected()
         
         switch type {
         case .Doing:
             doingWindowController.showWindow(nil)
-//            doingWindowController.selected()
         case .Todo:
             todoWindowController.showWindow(nil)
-//            todoWindowController.selected()
         case .Distractions:
             distractionsWindowController.showWindow(nil)
-//            distractionsWindowController.selected()
         }
     }
 
     override func makeWindowControllers() {
-        doingWindowController = makeController(identifier: "Doing Window Controller") as! DoingWindowController
-        todoWindowController = makeController(identifier: "Todo Window Controller") as! TodoWindowController
-        distractionsWindowController = makeController(identifier: "Distractions Window Controller") as! DistractionsWindowController
+        doingWindowController = makeController(identifier: "Doing Window Controller") as? DoingWindowController
+        todoWindowController = makeController(identifier: "Todo Window Controller") as? TodoWindowController
+        distractionsWindowController = makeController(identifier: "Distractions Window Controller") as? DistractionsWindowController
     }
     
     func makeController(identifier: String) -> NSWindowController {

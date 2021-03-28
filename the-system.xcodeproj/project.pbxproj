@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F5A61260D222C003E40AD /* TodoTextView.swift */; };
+		431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F5A64260DE7CF003E40AD /* DoingTextView.swift */; };
 		43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4325EC52FF009CDF4D /* AppDelegate.swift */; };
 		43EB0D4625EC52FF009CDF4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4525EC52FF009CDF4D /* ViewController.swift */; };
 		43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4725EC52FF009CDF4D /* Document.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		431F5A61260D222C003E40AD /* TodoTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTextView.swift; sourceTree = "<group>"; };
+		431F5A64260DE7CF003E40AD /* DoingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingTextView.swift; sourceTree = "<group>"; };
 		43EB0D4025EC52FF009CDF4D /* the-system.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the-system.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EB0D4325EC52FF009CDF4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EB0D4525EC52FF009CDF4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 				43EB0D6725EC56D0009CDF4D /* DocumentController.swift */,
 				43EB0D6A25EC59D4009CDF4D /* TextView.swift */,
 				43EB0D6D25EC5BFF009CDF4D /* Window.swift */,
+				431F5A61260D222C003E40AD /* TodoTextView.swift */,
+				431F5A64260DE7CF003E40AD /* DoingTextView.swift */,
 			);
 			path = "the-system";
 			sourceTree = "<group>";
@@ -170,6 +176,8 @@
 				43EB0D6125EC53BB009CDF4D /* DoingWindowController.swift in Sources */,
 				43EB0D5E25EC5392009CDF4D /* DistractionsWindowController.swift in Sources */,
 				43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */,
+				431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */,
+				431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */,
 				43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */,
 				43EB0D6B25EC59D4009CDF4D /* TextView.swift in Sources */,
 				43EB0D6825EC56D0009CDF4D /* DocumentController.swift in Sources */,
