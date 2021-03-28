@@ -14,14 +14,14 @@ class Window: NSWindow {
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         isOpaque = false
-        backgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+        backgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
         
     func selected() {
-        backgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 0.9)
+        backgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     func deselected() {
-        backgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 0.3)
+        backgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 1)
     }
 }
