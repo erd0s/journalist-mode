@@ -59,17 +59,22 @@ class DoingTextView: TextView {
     
     func completeTask() {
         // TODO - If
+        var currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
         
+        var linesAhead = getAllLinesAhead()
+
+        let style = NSMutableParagraphStyle()
         
-        // Mark this line done
-        let lineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
-        textStorage?.addAttribute(.strikethroughStyle, value: 2, range: lineRange)
+        if isTopOfStack() && !isLineCompleted(range: currentLineRange) {
+            // They're at the last task in the stack and it's not yet completed
+            
+            // Mark this line done
+            let lineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
+            textStorage?.addAttribute(.strikethroughStyle, value: 2, range: lineRange)
+        }
         
-        // Change the colour
-        textStorage?.addAttribute(.foregroundColor, value: NSColor.gray, range: lineRange)
-        
-        // Put the cursor at the end of the previous line
-        let previousLineRange = NSRange(location: lineRange.location, length: 0)
-        setSelectedRange(previousLineRange)
+        // Move the cursor to the top of the stack
+        let topOfStack = getTopOfStackRange()
+        setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length + 1, length: 0))
     }
 }

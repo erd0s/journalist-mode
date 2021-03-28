@@ -9,7 +9,7 @@ import Cocoa
 
 class Document: NSDocument {
     
-    @objc var content = Content(doing: "", todo: "", distractions: "")
+    @objc var content = Content(doing: "", todo: "", distractions: "Keyboard shortcuts:\n\nDoing: CMD+SHIFT+J\nTodo: CMD+SHIFT+K\nDistractions: CMD+SHIFT+L\nFinish task: SHIFT+ENTER")
     var doingWindowController: DoingWindowController!
     var todoWindowController: TodoWindowController!
     var distractionsWindowController: DistractionsWindowController!
