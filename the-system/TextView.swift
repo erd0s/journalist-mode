@@ -58,13 +58,24 @@ class TextView: NSTextView {
         return currentIndent
     }
     
-    func getAllLinesAhead() -> [NSAttributedString] {
+    func getAllLinesAhead(startingAt: Int? = nil) -> [NSAttributedString] {
+        var start: Int
+        if startingAt == nil {
+            start = selectedRange().location
+        } else {
+            start = startingAt!
+        }
+        
         let totalStringLength = string.count
         var lines: [NSAttributedString] = []
-        var searchRange = NSRange(location: selectedRange().location, length: totalStringLength - selectedRange().location)
+        var searchRange = NSRange(location: start, length: totalStringLength - start)
 
         let theString = string as NSString
         var foundRange = theString.rangeOfCharacter(from: ["\n"], range: searchRange)
+        if startingAt == 0 && string.count > 0 {
+            lines.append(attributedString().attributedSubstring(from: NSRange()))
+        }
+        
         while foundRange.location != Int.max {
             lines.append(attributedString().attributedSubstring(from: foundRange))
             
@@ -79,6 +90,20 @@ class TextView: NSTextView {
         }
         
         return lines
+    }
+    
+    func areAllTasksComplete() -> Bool {
+        var tasks = string.split(separator: "\n")
+        var runningLocation = 0
+        var allTasks: [NSAttributedString] = []
+        tasks.forEach { (task) in
+            allTasks.append(attributedString().attributedSubstring(from: NSRange(location: runningLocation, length: task.count)))
+            // Adding an extra one here to make up for the missing \n
+            runningLocation = runningLocation + task.count + 1
+        }
+        return allTasks.allSatisfy { (attributedString) -> Bool in
+            return isLineComplete(line: attributedString)
+        }
     }
     
     // Checks if all the attributed strings passed in are already marked as complete (strikethrough)
@@ -110,29 +135,30 @@ class TextView: NSTextView {
     
     // Find the range of the currently in progress task
     func getTopOfStackRange() -> NSRange {
-        var nextNewline = (string as NSString).rangeOfCharacter(from: ["\n"], options: .backwards, range: NSRange(location: 0, length: string.count))
-        var lineStart = nextNewline.location
-        var lineEnd = string.count
-        
-        if nextNewline.location == Int.max {
-            return NSRange(location: 0, length: string.count)
-        }
-        
-        while nextNewline.location != Int.max {
-            let currentRange = NSRange(location: lineStart, length: lineEnd - lineStart)
-            
-            let line = attributedString().attributedSubstring(from: currentRange)
+        var end = string.count
+        var start = 0
+        while true {
+            let nextNewlineBackwards = getNextNewlineBackwards(from: end)
+            let lineRange = NSRange(location: nextNewlineBackwards, length: end-nextNewlineBackwards)
+            let line = attributedString().attributedSubstring(from: lineRange)
             if !isLineComplete(line: line) {
-                return currentRange
+                return lineRange
+            } else if nextNewlineBackwards == 0 {
+                // Special case: if there's no tasks left return range of (0, 0)
+                return NSRange(location: 0, length: 0)
             }
             
-            nextNewline = (string as NSString).rangeOfCharacter(from: ["\n"], options: .backwards, range: NSRange(location: 0, length: lineStart - 1))
-            lineEnd = lineStart - 1
-            lineStart = nextNewline.location
-            print(String(lineStart) + ", " + String(lineEnd))
+            end = nextNewlineBackwards
         }
-        
-        return NSRange(location: 0, length: 0)
+    }
+    
+    func getNextNewlineBackwards(from startingAt: Int) -> Int {
+        let foundRange = (string as NSString).rangeOfCharacter(from: ["\n"], options: .backwards, range: NSRange(location: 0, length: startingAt))
+        if foundRange.location != Int.max {
+            return foundRange.location
+        } else {
+            return 0
+        }
     }
     
     func isLineCompleted(range: NSRange) -> Bool {

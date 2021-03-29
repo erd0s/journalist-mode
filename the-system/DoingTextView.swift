@@ -16,9 +16,28 @@ class DoingTextView: TextView {
     }
     
     func newTask(with event: NSEvent) {
-        var currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
+        // Check if we need to start a new top level task
+        if areAllTasksComplete() {
+            // New top level item
+            setSelectedRange(NSRange(location: string.count, length: 0))
+            
+            let style = NSMutableParagraphStyle()
+            style.firstLineHeadIndent = 0
+            style.headIndent = 0
+            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+            super.keyDown(with: event)
+            return
+        }
         
-        var linesAhead = getAllLinesAhead()
+//        if isTopOfStack() {
+//            // Insert a new task
+//        } else {
+//
+//        }
+        
+        let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
+        
+        let linesAhead = getAllLinesAhead()
 
         let style = NSMutableParagraphStyle()
         
@@ -59,11 +78,7 @@ class DoingTextView: TextView {
     
     func completeTask() {
         // TODO - If
-        var currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
-        
-        var linesAhead = getAllLinesAhead()
-
-        let style = NSMutableParagraphStyle()
+        let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
         
         if isTopOfStack() && !isLineCompleted(range: currentLineRange) {
             // They're at the last task in the stack and it's not yet completed
@@ -75,6 +90,6 @@ class DoingTextView: TextView {
         
         // Move the cursor to the top of the stack
         let topOfStack = getTopOfStackRange()
-        setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length + 1, length: 0))
+        setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length, length: 0))
     }
 }
