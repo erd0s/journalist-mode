@@ -29,15 +29,9 @@ class DoingTextView: TextView {
             return
         }
         
-//        if isTopOfStack() {
-//            // Insert a new task
-//        } else {
-//
-//        }
-        
         let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
         
-        let linesAhead = getAllLinesAhead()
+        let linesAhead = getAllLinesAfterCurrent()
 
         let style = NSMutableParagraphStyle()
         
@@ -58,12 +52,12 @@ class DoingTextView: TextView {
             // Skip to the top of the stack
             let topOfStack = getTopOfStackRange()
             
-            let indent: CGFloat = getLineIndent(attributedString: attributedString().attributedSubstring(from: topOfStack)) + 15.0
+            let indent: CGFloat = attributedString().attributedSubstring(from: topOfStack).getLineIndent() + 15.0
             style.firstLineHeadIndent = indent
             style.headIndent = indent
             typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
             
-            setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length + 1, length: 0))
+            setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length, length: 0))
         } else {
             // They're at the last position in the stack and there's no tasks further down the page
             

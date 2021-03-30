@@ -1,10 +1,3 @@
-//
-//  DocumentController.swift
-//  the-system
-//
-//  Created by Dirk on 28/02/2021.
-//
-
 import Cocoa
 import HotKey
 

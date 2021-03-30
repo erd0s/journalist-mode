@@ -705,7 +705,7 @@
         <!--Doing VC-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="5gI-5U-AMq" userLabel="Doing VC" customClass="ViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5gI-5U-AMq" userLabel="Doing VC" customClass="DoingViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -755,6 +755,9 @@
                             </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="GM0-bv-RqZ" id="ORn-Qs-aSc"/>
+                    </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="P6b-5T-kpQ"/>
@@ -790,7 +793,7 @@
         <!--Todo VC-->
         <scene sceneID="c9k-KT-nzD">
             <objects>
-                <viewController id="dVy-OM-JIx" userLabel="Todo VC" customClass="ViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dVy-OM-JIx" userLabel="Todo VC" customClass="TodoViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="0Mp-lr-q6D">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -840,6 +843,9 @@
                             </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="27n-YJ-X2v" id="pSY-KK-4N0"/>
+                    </connections>
                 </viewController>
                 <customObject id="Gx3-fp-neM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -874,7 +880,7 @@
         <!--Distractions VC-->
         <scene sceneID="lOL-MK-GHI">
             <objects>
-                <viewController id="cWP-ZQ-Zv0" userLabel="Distractions VC" customClass="ViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cWP-ZQ-Zv0" userLabel="Distractions VC" customClass="DistractionsViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="lwh-Xi-0nX">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -924,6 +930,9 @@
                             </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="BdA-df-iOf" id="5m1-FG-XLg"/>
+                    </connections>
                 </viewController>
                 <customObject id="AS6-pB-BCd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
