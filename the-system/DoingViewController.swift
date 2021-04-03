@@ -8,4 +8,7 @@ class DoingViewController: NSViewController {
         // Do view setup here.
     }
     
+    func forceUpdate() {
+        (representedObject as! Content).doingString = NSMutableAttributedString(attributedString: textView.attributedString())
+    }
 }

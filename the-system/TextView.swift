@@ -59,62 +59,8 @@ class TextView: NSTextView {
         if currentLineRange.location + currentLineRange.length + 1 >= string.count {
             return []
         } else {
-            return getAllLinesAhead(startingAt: currentLineRange.location + currentLineRange.length + 1)
+            return textStorage!.getAllLinesAhead(startingAt: currentLineRange.location + currentLineRange.length + 1)
         }
-    }
-    
-    func getAllLinesAhead(startingAt: Int) -> [NSAttributedString] {
-        var searchStart = startingAt
-        var searchEnd = string.count
-        
-        var lines: [NSAttributedString] = []
-        while true {
-            let foundNewline = (string as NSString).rangeOfCharacter(from: ["\n"], range: NSRange(location: searchStart, length: searchEnd-searchStart))
-            
-            if foundNewline.location != Int.max {
-                lines.append(attributedString().attributedSubstring(from: NSRange(location: searchStart, length: foundNewline.location - searchStart)))
-                
-                searchStart = foundNewline.location+1
-                if searchStart >= searchEnd {
-                    break
-                }
-            } else {
-                // Add in the last line
-                if searchEnd-searchStart > 0 {
-                    lines.append(attributedString().attributedSubstring(from: NSRange(location: searchStart, length: searchEnd-searchStart)))
-                }
-                break
-            }
-        }
-        return lines
-//        var start: Int
-//        if startingAt == nil {
-//            start = selectedRange().location
-//        } else {
-//            start = startingAt!
-//        }
-//
-//        let totalStringLength = string.count
-//        var lines: [NSAttributedString] = []
-//        var searchRange = NSRange(location: start, length: totalStringLength - start)
-//
-//        let theString = string as NSString
-//        var foundRange = theString.rangeOfCharacter(from: ["\n"], range: searchRange)
-//
-//        while foundRange.location != Int.max {
-//            lines.append(attributedString().attributedSubstring(from: NSRange(location: start, length: foundRange.location)))
-//
-//            // Check if this was the last line in the document
-//            if foundRange.location + foundRange.length >= totalStringLength {
-//                break
-//            }
-//
-//            start = foundRange.location + foundRange.length
-//            searchRange = NSRange(location: start, length: totalStringLength - start)
-//            foundRange = theString.rangeOfCharacter(from: ["\n"], range: searchRange)
-//        }
-//
-//        return lines
     }
     
     func areAllTasksComplete() -> Bool {

@@ -71,7 +71,6 @@ class DoingTextView: TextView {
     }
     
     func completeTask() {
-        // TODO - If
         let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
         
         if isTopOfStack() && !isLineCompleted(range: currentLineRange) {
@@ -84,6 +83,7 @@ class DoingTextView: TextView {
         
         // Move the cursor to the top of the stack
         let topOfStack = getTopOfStackRange()
+        textStorage?.setAttributedString((textStorage?.attributedSubstring(from: NSRange(location: 0, length: textStorage!.length)))!)
         setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length, length: 0))
     }
 }

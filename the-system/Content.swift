@@ -1,28 +1,99 @@
 import Cocoa
 
 class Content: NSObject {
-    @objc dynamic var doingString = "Doing temp"
-    @objc dynamic var todoString = "Todo temp"
-    @objc dynamic var distractionsString = "Distractions temp"
+    @objc dynamic var doingString: NSMutableAttributedString = NSMutableAttributedString(string: "Doing temp")
+    @objc dynamic var todoString: NSMutableAttributedString = NSMutableAttributedString(string: "Todo temp")
+    @objc dynamic var distractionsString: NSMutableAttributedString = NSMutableAttributedString(string: "Distractions temp")
     
     public init(doing: String, todo: String, distractions: String) {
-        self.doingString = doing
-        self.todoString = todo
-        self.distractionsString = distractions
+        self.doingString = NSMutableAttributedString(string: doing)
+        self.todoString = NSMutableAttributedString(string: todo)
+        self.distractionsString = NSMutableAttributedString(string: distractions)
     }
     
     let separator = "\n\n################################################################\n\n"
     
     func read(from data: Data) {
-        let contentString = String(bytes: data, encoding: .utf8)!
-        let components = contentString.components(separatedBy: separator)
-        doingString = components.count > 0 ? components[0] : ""
-        todoString = components.count > 1 ? components[1] : ""
-        distractionsString = components.count > 2 ? components[2] : ""
+        let fullString = String(bytes: data, encoding: .utf8)!
+        let sections = fullString.components(separatedBy: separator)
+
+        var doingAttributedStrings: [NSMutableAttributedString] = []
+
+        // Doing string
+        let doingLines = sections[0].split(separator: "\n")
+        doingLines.forEach { (string) in
+            // Get the number of spaces at the start of the line
+            let numSpaces = String(string).numSpacesAtStart()
+
+            // Strip the starting bit
+            var trimmed = String(string).dropFirst(numSpaces + 2)
+
+            // Strip the starting
+            var attributedString: NSMutableAttributedString
+            if trimmed.prefix(2) == "~~" && trimmed.suffix(2) == "~~" {
+                // It's completed
+                trimmed.removeLast(2)
+                trimmed.removeFirst(2)
+                attributedString = NSMutableAttributedString(string: String(trimmed), attributes: [NSAttributedString.Key.strikethroughStyle: 2])
+            } else {
+                // Not completed
+                attributedString = NSMutableAttributedString(string: String(trimmed))
+            }
+
+            // Deal with the indent
+            let indentSize = CGFloat(numSpaces/2 * 15)
+            let indent = NSMutableParagraphStyle()
+            indent.headIndent = indentSize
+            indent.firstLineHeadIndent = indentSize
+
+            attributedString.addAttribute(.paragraphStyle, value: indent, range: NSRange(location: 0, length: trimmed.count))
+            doingAttributedStrings.append(attributedString)
+        }
+        doingString.append(doingAttributedStrings.joined(with: "\n"))
+
+        // Todo string
+//        let todoLines = sections[1].split(separator: "\n")
+        todoString.append(NSMutableAttributedString(string: sections[1]))
+        distractionsString.append(NSMutableAttributedString(string: sections[2]))
     }
     
     func data() -> Data? {
-        let componentsString = doingString + separator + todoString + separator + distractionsString
-        return componentsString.data(using: .utf8)
+        let doingLines = doingString.getAllLinesAhead(startingAt: 0)
+        var doingAsciiLines: [String] = []
+        doingString.enumerateAttributes(in: NSRange(location: 0, length: doingString.length), options: []) { (attributes, range, _) in
+            print(attributes)
+        }
+        doingLines.forEach { (attributedString) in
+            // Get indent
+            let indentLevel = attributedString.getLineIndent() / 15
+            let completed: Bool = attributedString.isLineComplete()
+            
+            let leftPadding = "".padding(toLength: Int(indentLevel)*4, withPad: " ", startingAt: 0)
+            if completed {
+                doingAsciiLines.append(leftPadding + "- ~~" + attributedString.string + "~~")
+            } else {
+                doingAsciiLines.append(leftPadding + "- " + attributedString.string)
+            }
+        }
+        var finalDoingString = doingAsciiLines.joined(separator: "\n")
+        
+        // Get the todo string
+        var todoAsciiLines: [String] = []
+        let todoLines = todoString.getAllLinesAhead(startingAt: 0)
+        todoLines.forEach { (attributedString) in
+            if attributedString.isLineComplete() {
+                todoAsciiLines.append("~~" + attributedString.string + "~~")
+            } else {
+                todoAsciiLines.append(attributedString.string)
+            }
+        }
+        var finalTodoString = todoAsciiLines.joined(separator: "\n")
+        
+        // Get the distractions string
+        var finalDistractionsString = distractionsString.string
+        
+        let fullString = finalDoingString + separator + finalTodoString + separator + finalDistractionsString
+        
+        return fullString.data(using: .utf8)!
     }
 }

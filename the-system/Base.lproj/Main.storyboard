@@ -717,7 +717,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="465" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="GM0-bv-RqZ" customClass="DoingTextView" customModule="the_system" customModuleProvider="target">
+                                        <textView importsGraphics="NO" verticallyResizable="YES" smartInsertDelete="YES" id="GM0-bv-RqZ" customClass="DoingTextView" customModule="the_system" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="465" height="250"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -726,7 +726,7 @@
                                             <size key="maxSize" width="480" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
-                                                <binding destination="5gI-5U-AMq" name="value" keyPath="representedObject.doingString" id="BS6-rO-Q1R">
+                                                <binding destination="5gI-5U-AMq" name="attributedString" keyPath="representedObject.doingString" id="FUl-oq-PCX">
                                                     <dictionary key="options">
                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                     </dictionary>
@@ -814,7 +814,7 @@
                                             <size key="maxSize" width="514" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
-                                                <binding destination="dVy-OM-JIx" name="value" keyPath="representedObject.todoString" id="CMs-Vr-S9Q">
+                                                <binding destination="dVy-OM-JIx" name="attributedString" keyPath="representedObject.todoString" id="ddu-dG-yBY">
                                                     <dictionary key="options">
                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                     </dictionary>
@@ -848,6 +848,7 @@
                     </connections>
                 </viewController>
                 <customObject id="Gx3-fp-neM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController id="PZK-72-Z3G"/>
             </objects>
             <point key="canvasLocation" x="616" y="655"/>
         </scene>
@@ -901,7 +902,7 @@
                                             <size key="maxSize" width="480" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
-                                                <binding destination="cWP-ZQ-Zv0" name="value" keyPath="representedObject.distractionsString" id="vEp-wv-abo">
+                                                <binding destination="cWP-ZQ-Zv0" name="attributedString" keyPath="representedObject.distractionsString" id="1k4-6w-Fbu">
                                                     <dictionary key="options">
                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                     </dictionary>

@@ -14,6 +14,7 @@
 		432347D42613A12B00E465DE /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347D32613A12B00E465DE /* TodoViewController.swift */; };
 		432347D92613A14400E465DE /* DistractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347D82613A14400E465DE /* DistractionsViewController.swift */; };
 		432347E02613A9FE00E465DE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347DF2613A9FE00E465DE /* StringExtensions.swift */; };
+		43336F0F26171F7600567AA0 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43336F0E26171F7600567AA0 /* SequenceExtensions.swift */; };
 		43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4325EC52FF009CDF4D /* AppDelegate.swift */; };
 		43EB0D4625EC52FF009CDF4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4525EC52FF009CDF4D /* ViewController.swift */; };
 		43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4725EC52FF009CDF4D /* Document.swift */; };
@@ -37,6 +38,7 @@
 		432347D32613A12B00E465DE /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		432347D82613A14400E465DE /* DistractionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistractionsViewController.swift; sourceTree = "<group>"; };
 		432347DF2613A9FE00E465DE /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		43336F0E26171F7600567AA0 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		43EB0D4025EC52FF009CDF4D /* the-system.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the-system.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EB0D4325EC52FF009CDF4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EB0D4525EC52FF009CDF4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				431F5A64260DE7CF003E40AD /* DoingTextView.swift */,
 				432347D026135F6300E465DE /* AttributedStringExtensions.swift */,
 				432347DF2613A9FE00E465DE /* StringExtensions.swift */,
+				43336F0E26171F7600567AA0 /* SequenceExtensions.swift */,
 			);
 			path = "the-system";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */,
 				431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */,
 				431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */,
+				43336F0F26171F7600567AA0 /* SequenceExtensions.swift in Sources */,
 				43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */,
 				432347D42613A12B00E465DE /* TodoViewController.swift in Sources */,
 				43EB0D6B25EC59D4009CDF4D /* TextView.swift in Sources */,
