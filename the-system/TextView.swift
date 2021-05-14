@@ -11,6 +11,10 @@ class TextView: NSTextView {
         }
     }
     
+    override func paste(_ sender: Any?) {
+       pasteAsPlainText(sender)
+    }
+    
     func getLineRange(string: NSString, selectedRange: NSRange) -> NSRange {
         // Look backwards from this range for a newline
         let backwards = string.range(of: "\n", options: .backwards, range: NSRange(location: 0, length: selectedRange.location))
