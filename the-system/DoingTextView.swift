@@ -22,6 +22,7 @@ class DoingTextView: TextView {
             setSelectedRange(NSRange(location: string.count, length: 0))
             
             let style = NSMutableParagraphStyle()
+            style.lineSpacing = 10
             style.firstLineHeadIndent = 0
             style.headIndent = 0
             typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
@@ -34,6 +35,7 @@ class DoingTextView: TextView {
         let linesAhead = getAllLinesAfterCurrent()
 
         let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
         
         if linesAhead.count > 0 && areAllLinesComplete(lines: linesAhead) && !isLineCompleted(range: currentLineRange) {
             // They're at the last task in the stack and there's other completed tasks further down the page
@@ -86,4 +88,5 @@ class DoingTextView: TextView {
         textStorage?.setAttributedString((textStorage?.attributedSubstring(from: NSRange(location: 0, length: textStorage!.length)))!)
         setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length, length: 0))
     }
+    
 }

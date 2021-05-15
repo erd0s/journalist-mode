@@ -54,6 +54,7 @@
 		43EB0D6725EC56D0009CDF4D /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		43EB0D6A25EC59D4009CDF4D /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		43EB0D6D25EC5BFF009CDF4D /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		43F6FB65264EB1540090CDBB /* SELL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SELL.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +72,7 @@
 		43EB0D3725EC52FF009CDF4D = {
 			isa = PBXGroup;
 			children = (
+				43F6FB65264EB1540090CDBB /* SELL.md */,
 				43EB0D4225EC52FF009CDF4D /* the-system */,
 				43EB0D4125EC52FF009CDF4D /* Products */,
 			);

@@ -1,7 +1,26 @@
 import Cocoa
 import Carbon
 
-class TextView: NSTextView {
+class TextView: NSTextView, NSTextViewDelegate {
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+        delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+        delegate = self
+    }
+    
     override func keyDown(with event: NSEvent) {
         switch Int(event.keyCode) {
         case kVK_Escape:
@@ -147,5 +166,12 @@ class TextView: NSTextView {
         }
         let previousLineEnd = NSRange(location: selection.location-1, length: 0)
         return getLineRange(string: string as NSString, selectedRange: previousLineEnd)
+    }
+    
+    func textDidChange(_ notification: Notification) {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        defaultParagraphStyle = style
+        textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
     }
 }
