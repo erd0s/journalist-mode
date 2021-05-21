@@ -30,5 +30,7 @@ class DoingView: NSView {
             self.addSubview(newView)
         }
         self.addConstraints(newConstraints)
+        wantsLayer = true        
+        layer?.backgroundColor = CGColor.white
     }
 }

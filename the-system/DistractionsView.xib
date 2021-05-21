@@ -16,55 +16,49 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view id="eE9-AZ-evr">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSW-nx-jzc">
-                            <rect key="frame" x="24" y="0.0" width="432" height="213"/>
-                            <clipView key="contentView" drawsBackground="NO" id="P3p-r9-Jao">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jor-dk-Q7l">
+                    <rect key="frame" x="25" y="226" width="152" height="29"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Distractions" id="p3S-n4-7Od">
+                        <font key="font" size="24" name="SFProText-Bold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSW-nx-jzc">
+                    <rect key="frame" x="24" y="0.0" width="432" height="213"/>
+                    <clipView key="contentView" drawsBackground="NO" id="P3p-r9-Jao">
+                        <rect key="frame" x="0.0" y="0.0" width="417" height="213"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView importsGraphics="NO" verticallyResizable="YES" allowsUndo="YES" smartInsertDelete="YES" id="saD-pX-Pfh" customClass="TextView" customModule="the_system" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="417" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <textView importsGraphics="NO" verticallyResizable="YES" allowsUndo="YES" smartInsertDelete="YES" id="saD-pX-Pfh" customClass="TextView" customModule="the_system" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="417" height="213"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <size key="minSize" width="417" height="213"/>
-                                        <size key="maxSize" width="480" height="10000000"/>
-                                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    </textView>
-                                </subviews>
-                            </clipView>
-                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="jxz-Nh-zql">
-                                <rect key="frame" x="-100" y="-100" width="225" height="15"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="75P-hK-dKp">
-                                <rect key="frame" x="417" y="0.0" width="15" height="213"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                        </scrollView>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jor-dk-Q7l">
-                            <rect key="frame" x="25" y="226" width="152" height="29"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Distractions" id="p3S-n4-7Od">
-                                <font key="font" size="24" name="SFProText-Bold"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="CSW-nx-jzc" secondAttribute="trailing" constant="24" id="6UR-tT-ZdC"/>
-                        <constraint firstAttribute="bottom" secondItem="CSW-nx-jzc" secondAttribute="bottom" id="Cns-2m-SNw"/>
-                        <constraint firstItem="jor-dk-Q7l" firstAttribute="top" secondItem="eE9-AZ-evr" secondAttribute="top" constant="17" id="TZa-WX-CO2"/>
-                        <constraint firstItem="jor-dk-Q7l" firstAttribute="leading" secondItem="eE9-AZ-evr" secondAttribute="leading" constant="27" id="iIX-7z-3p9"/>
-                        <constraint firstItem="CSW-nx-jzc" firstAttribute="leading" secondItem="eE9-AZ-evr" secondAttribute="leading" constant="24" id="jNG-en-xIo"/>
-                        <constraint firstItem="CSW-nx-jzc" firstAttribute="top" secondItem="jor-dk-Q7l" secondAttribute="bottom" constant="13" id="w8s-Xx-QG8"/>
-                    </constraints>
-                </view>
+                                <size key="minSize" width="417" height="213"/>
+                                <size key="maxSize" width="480" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="jxz-Nh-zql">
+                        <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="75P-hK-dKp">
+                        <rect key="frame" x="417" y="0.0" width="15" height="213"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
+            <constraints>
+                <constraint firstItem="jor-dk-Q7l" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="27" id="4LM-yK-lL8"/>
+                <constraint firstAttribute="bottom" secondItem="CSW-nx-jzc" secondAttribute="bottom" id="NK0-SA-3zw"/>
+                <constraint firstItem="saD-pX-Pfh" firstAttribute="top" secondItem="jor-dk-Q7l" secondAttribute="bottom" constant="13" id="Qas-PX-sKY"/>
+                <constraint firstItem="CSW-nx-jzc" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="24" id="Xca-xP-hPR"/>
+                <constraint firstAttribute="trailing" secondItem="CSW-nx-jzc" secondAttribute="trailing" constant="24" id="nw0-yY-g0X"/>
+                <constraint firstItem="jor-dk-Q7l" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="17" id="rVM-Jw-zMC"/>
+            </constraints>
             <point key="canvasLocation" x="130" y="154"/>
         </customView>
     </objects>

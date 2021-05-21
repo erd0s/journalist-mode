@@ -16,55 +16,49 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view id="bCc-Pk-0oY">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="271"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QM-Q3-fqu">
-                            <rect key="frame" x="24" y="0.0" width="432" height="212"/>
-                            <clipView key="contentView" drawsBackground="NO" id="hhe-ud-khz">
-                                <rect key="frame" x="0.0" y="0.0" width="417" height="212"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K4m-vF-gkk">
+                    <rect key="frame" x="25" y="226" width="63" height="29"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Todo" id="jdY-TW-Nrl">
+                        <font key="font" size="24" name="SFProText-Bold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QM-Q3-fqu">
+                    <rect key="frame" x="24" y="0.0" width="432" height="213"/>
+                    <clipView key="contentView" drawsBackground="NO" id="hhe-ud-khz">
+                        <rect key="frame" x="0.0" y="0.0" width="417" height="213"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView importsGraphics="NO" verticallyResizable="YES" allowsUndo="YES" smartInsertDelete="YES" id="GKk-8S-Kr9" customClass="TodoTextView" customModule="the_system" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="417" height="213"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <textView importsGraphics="NO" verticallyResizable="YES" allowsUndo="YES" smartInsertDelete="YES" id="GKk-8S-Kr9" customClass="TodoTextView" customModule="the_system" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="417" height="212"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <size key="minSize" width="417" height="212"/>
-                                        <size key="maxSize" width="514" height="10000000"/>
-                                        <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    </textView>
-                                </subviews>
-                            </clipView>
-                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="qij-vy-Mvy">
-                                <rect key="frame" x="-100" y="-100" width="225" height="15"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="TDr-vP-Jx2">
-                                <rect key="frame" x="417" y="0.0" width="15" height="212"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </scroller>
-                        </scrollView>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K4m-vF-gkk">
-                            <rect key="frame" x="25" y="225" width="63" height="29"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Todo" id="jdY-TW-Nrl">
-                                <font key="font" size="24" name="SFProText-Bold"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="5QM-Q3-fqu" firstAttribute="leading" secondItem="bCc-Pk-0oY" secondAttribute="leading" constant="24" id="5KX-x1-a9A"/>
-                        <constraint firstItem="5QM-Q3-fqu" firstAttribute="top" secondItem="K4m-vF-gkk" secondAttribute="bottom" constant="13" id="69E-ti-Mtj"/>
-                        <constraint firstItem="K4m-vF-gkk" firstAttribute="top" secondItem="bCc-Pk-0oY" secondAttribute="top" constant="17" id="KNL-r5-AOJ"/>
-                        <constraint firstAttribute="trailing" secondItem="5QM-Q3-fqu" secondAttribute="trailing" constant="24" id="Lht-Kc-g9a"/>
-                        <constraint firstItem="K4m-vF-gkk" firstAttribute="leading" secondItem="bCc-Pk-0oY" secondAttribute="leading" constant="27" id="a6C-cL-Agw"/>
-                        <constraint firstAttribute="bottom" secondItem="5QM-Q3-fqu" secondAttribute="bottom" id="q6K-Od-fR0"/>
-                    </constraints>
-                </view>
+                                <size key="minSize" width="417" height="213"/>
+                                <size key="maxSize" width="514" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="qij-vy-Mvy">
+                        <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="TDr-vP-Jx2">
+                        <rect key="frame" x="417" y="0.0" width="15" height="213"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
+            <constraints>
+                <constraint firstItem="5QM-Q3-fqu" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="24" id="KVi-J6-p1v"/>
+                <constraint firstItem="K4m-vF-gkk" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="27" id="YWP-cz-0gD"/>
+                <constraint firstAttribute="trailing" secondItem="5QM-Q3-fqu" secondAttribute="trailing" constant="24" id="dJ0-KS-0Un"/>
+                <constraint firstAttribute="bottom" secondItem="5QM-Q3-fqu" secondAttribute="bottom" id="dSk-ye-QwL"/>
+                <constraint firstItem="K4m-vF-gkk" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="17" id="hUz-qj-sLG"/>
+                <constraint firstItem="GKk-8S-Kr9" firstAttribute="top" secondItem="K4m-vF-gkk" secondAttribute="bottom" constant="13" id="xyY-jC-9rH"/>
+            </constraints>
             <point key="canvasLocation" x="130" y="154"/>
         </customView>
     </objects>

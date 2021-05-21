@@ -7,6 +7,8 @@ class Document: NSDocument {
     var todoWindowController: TodoWindowController!
     var distractionsWindowController: DistractionsWindowController!
     
+    var singleWindowController: SingleWindowController!
+    
     let separator = "\n\n################################################################\n\n"
 
     override init() {
@@ -19,24 +21,32 @@ class Document: NSDocument {
     }
     
     func enableWindow(type: SystemPart) {
-        doingWindowController.showWindow(nil)
-        todoWindowController.showWindow(nil)
-        distractionsWindowController.showWindow(nil)
-        
-        switch type {
-        case .Doing:
+        if (displayType == .Single) {
+            // Nothing to do here
+        } else {
             doingWindowController.showWindow(nil)
-        case .Todo:
             todoWindowController.showWindow(nil)
-        case .Distractions:
             distractionsWindowController.showWindow(nil)
+            
+            switch type {
+            case .Doing:
+                doingWindowController.showWindow(nil)
+            case .Todo:
+                todoWindowController.showWindow(nil)
+            case .Distractions:
+                distractionsWindowController.showWindow(nil)
+            }
         }
     }
 
     override func makeWindowControllers() {
-        doingWindowController = makeController(identifier: "Doing Window Controller") as? DoingWindowController
-        todoWindowController = makeController(identifier: "Todo Window Controller") as? TodoWindowController
-        distractionsWindowController = makeController(identifier: "Distractions Window Controller") as? DistractionsWindowController
+        if (displayType == .Single) {
+            singleWindowController = makeController(identifier: "Single Window Controller") as? SingleWindowController
+        } else {
+            doingWindowController = makeController(identifier: "Doing Window Controller") as? DoingWindowController
+            todoWindowController = makeController(identifier: "Todo Window Controller") as? TodoWindowController
+            distractionsWindowController = makeController(identifier: "Distractions Window Controller") as? DistractionsWindowController
+        }
     }
     
     func makeController(identifier: String) -> NSWindowController {
@@ -48,7 +58,9 @@ class Document: NSDocument {
     }
     
     override func data(ofType typeName: String) throws -> Data {
-        (doingWindowController.contentViewController as! DoingViewController).forceUpdate()
+        if (displayType == .Multi) {
+            (doingWindowController.contentViewController as! DoingViewController).forceUpdate()
+        }
         return content.data()!
     }
 

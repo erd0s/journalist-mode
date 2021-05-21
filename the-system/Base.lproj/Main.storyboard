@@ -678,7 +678,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="51" y="-3"/>
         </scene>
         <!--Doing WC-->
         <scene sceneID="R2V-B0-nI4">
@@ -794,81 +794,84 @@
             </objects>
             <point key="canvasLocation" x="1159" y="250"/>
         </scene>
-        <!--Distractions VC-->
-        <scene sceneID="lOL-MK-GHI">
-            <objects>
-                <viewController id="cWP-ZQ-Zv0" userLabel="Distractions VC" customClass="DistractionsViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="lwh-Xi-0nX">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9II-UW-QMW" customClass="DistractionsView" customModule="the_system" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </customView>
-                        </subviews>
-                    </view>
-                </viewController>
-                <customObject id="AS6-pB-BCd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1159" y="655"/>
-        </scene>
         <!--Window Controller-->
-        <scene sceneID="aS5-jx-TFU">
+        <scene sceneID="xyn-n6-fYO">
             <objects>
-                <windowController id="q7V-Yj-T3Y" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="GRx-jo-la8">
+                <windowController storyboardIdentifier="Single Window Controller" id="JB5-wX-f6c" customClass="SingleWindowController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="e0l-Fs-nRe">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="299" width="480" height="272"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
-                        <view key="contentView" id="vIt-7k-rxT">
-                            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                        <view key="contentView" id="avj-HN-jdv">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
                         <connections>
-                            <outlet property="delegate" destination="q7V-Yj-T3Y" id="0HX-NQ-rXk"/>
+                            <outlet property="delegate" destination="JB5-wX-f6c" id="KhO-ld-549"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="KW0-fO-VXi" kind="relationship" relationship="window.shadowedContentViewController" id="CUW-dn-Fre"/>
+                        <segue destination="xCo-Kd-HhW" kind="relationship" relationship="window.shadowedContentViewController" id="hFK-1N-0RC"/>
                     </connections>
                 </windowController>
-                <customObject id="HUS-iR-NaM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="xYe-Hs-ql2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616" y="1073"/>
+            <point key="canvasLocation" x="2052" y="250"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1aM-8e-Aog">
+        <!--Single View Controller-->
+        <scene sceneID="CJ0-QD-bTY">
             <objects>
-                <viewController id="KW0-fO-VXi" sceneMemberID="viewController">
-                    <view key="view" id="ljp-qQ-6MY">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                <viewController id="xCo-Kd-HhW" customClass="SingleViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="EPn-1X-mjq">
+                        <rect key="frame" x="0.0" y="0.0" width="675" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jen-21-hBK">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-dV-nXR">
+                                <rect key="frame" x="0.0" y="0.0" width="675" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <customView fixedFrame="YES" id="yxa-bI-Svp" customClass="DoingView" customModule="the_system" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="236" height="270"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </customView>
-                                    <customView fixedFrame="YES" id="X8L-pV-opi">
-                                        <rect key="frame" x="246" y="0.0" width="234" height="270"/>
+                                    <customView id="4Iq-TL-nZd">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="367"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="paneSplitter" translatesAutoresizingMaskIntoConstraints="NO" id="trx-wI-KZu">
-                                                <rect key="frame" x="0.0" y="0.0" width="234" height="270"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="C6h-VL-6F7" customClass="DoingView" customModule="the_system" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="367"/>
+                                            </customView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="C6h-VL-6F7" secondAttribute="trailing" id="DA1-75-e7U"/>
+                                            <constraint firstItem="C6h-VL-6F7" firstAttribute="leading" secondItem="4Iq-TL-nZd" secondAttribute="leading" id="F5v-PI-Wjv"/>
+                                            <constraint firstItem="C6h-VL-6F7" firstAttribute="top" secondItem="4Iq-TL-nZd" secondAttribute="top" id="UlM-4v-tdJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="C6h-VL-6F7" secondAttribute="bottom" id="aPM-gR-Bir"/>
+                                        </constraints>
+                                    </customView>
+                                    <customView fixedFrame="YES" id="3ig-IB-h92">
+                                        <rect key="frame" x="345" y="0.0" width="330" height="367"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="paneSplitter" translatesAutoresizingMaskIntoConstraints="NO" id="jWO-LQ-V7i">
+                                                <rect key="frame" x="0.0" y="0.0" width="330" height="367"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <customView fixedFrame="YES" id="LoX-Hu-FcP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="234" height="127"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    <customView id="0Jc-Wh-YWA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="330" height="174"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <subviews>
+                                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="i6v-39-913" customClass="TodoView" customModule="the_system" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="174"/>
+                                                            </customView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="i6v-39-913" firstAttribute="leading" secondItem="0Jc-Wh-YWA" secondAttribute="leading" id="4dT-O9-1no"/>
+                                                            <constraint firstAttribute="trailing" secondItem="i6v-39-913" secondAttribute="trailing" id="95r-q4-5SR"/>
+                                                            <constraint firstItem="i6v-39-913" firstAttribute="top" secondItem="0Jc-Wh-YWA" secondAttribute="top" id="s2Q-FS-ydE"/>
+                                                            <constraint firstAttribute="bottom" secondItem="i6v-39-913" secondAttribute="bottom" id="v89-hx-PaR"/>
+                                                        </constraints>
                                                     </customView>
-                                                    <customView fixedFrame="YES" id="Gsp-e9-ogU">
-                                                        <rect key="frame" x="0.0" y="137" width="234" height="133"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    <customView fixedFrame="YES" id="oX0-20-jYU" customClass="DistractionsView" customModule="the_system" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="184" width="330" height="183"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </customView>
                                                 </subviews>
                                                 <holdingPriorities>
@@ -887,9 +890,28 @@
                         </subviews>
                     </view>
                 </viewController>
-                <customObject id="lx9-bo-HVK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="WVM-Si-oCa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616" y="1490"/>
+            <point key="canvasLocation" x="2149.5" y="703.5"/>
+        </scene>
+        <!--Distractions VC-->
+        <scene sceneID="lOL-MK-GHI">
+            <objects>
+                <viewController id="cWP-ZQ-Zv0" userLabel="Distractions VC" customClass="DistractionsViewController" customModule="the_system" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="lwh-Xi-0nX">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9II-UW-QMW" customClass="DistractionsView" customModule="the_system" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </customView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="AS6-pB-BCd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="655"/>
         </scene>
     </scenes>
 </document>

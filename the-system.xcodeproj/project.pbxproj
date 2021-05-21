@@ -13,6 +13,8 @@
 		430C96692657A69800085D71 /* DoingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C96682657A69800085D71 /* DoingView.swift */; };
 		430C966C2657A6A000085D71 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C966B2657A6A000085D71 /* TodoView.swift */; };
 		430C966F2657A6AB00085D71 /* DistractionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C966E2657A6AB00085D71 /* DistractionsView.swift */; };
+		430C969B2657BA4500085D71 /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C969A2657BA4500085D71 /* SingleViewController.swift */; };
+		430C969E2657BB8C00085D71 /* SingleWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C969D2657BB8C00085D71 /* SingleWindowController.swift */; };
 		431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F5A61260D222C003E40AD /* TodoTextView.swift */; };
 		431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F5A64260DE7CF003E40AD /* DoingTextView.swift */; };
 		432347CE26135E8800E465DE /* DoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347CD26135E8800E465DE /* DoingViewController.swift */; };
@@ -43,6 +45,8 @@
 		430C96682657A69800085D71 /* DoingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingView.swift; sourceTree = "<group>"; };
 		430C966B2657A6A000085D71 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
 		430C966E2657A6AB00085D71 /* DistractionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistractionsView.swift; sourceTree = "<group>"; };
+		430C969A2657BA4500085D71 /* SingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
+		430C969D2657BB8C00085D71 /* SingleWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWindowController.swift; sourceTree = "<group>"; };
 		431F5A61260D222C003E40AD /* TodoTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTextView.swift; sourceTree = "<group>"; };
 		431F5A64260DE7CF003E40AD /* DoingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingTextView.swift; sourceTree = "<group>"; };
 		432347CD26135E8800E465DE /* DoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				430C96682657A69800085D71 /* DoingView.swift */,
 				430C966B2657A6A000085D71 /* TodoView.swift */,
 				430C966E2657A6AB00085D71 /* DistractionsView.swift */,
+				430C969A2657BA4500085D71 /* SingleViewController.swift */,
+				430C969D2657BB8C00085D71 /* SingleWindowController.swift */,
 			);
 			path = "the-system";
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430C969E2657BB8C00085D71 /* SingleWindowController.swift in Sources */,
 				43EB0D4625EC52FF009CDF4D /* ViewController.swift in Sources */,
 				43EB0D6E25EC5BFF009CDF4D /* Window.swift in Sources */,
 				430C966C2657A6A000085D71 /* TodoView.swift in Sources */,
@@ -231,6 +238,7 @@
 				43EB0D6825EC56D0009CDF4D /* DocumentController.swift in Sources */,
 				43EB0D5B25EC5365009CDF4D /* Content.swift in Sources */,
 				432347CE26135E8800E465DE /* DoingViewController.swift in Sources */,
+				430C969B2657BA4500085D71 /* SingleViewController.swift in Sources */,
 				432347E02613A9FE00E465DE /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
