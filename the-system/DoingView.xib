@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="DoingView" customModule="the_system" customModuleProvider="target">
             <connections>
+                <outlet property="doingTextView" destination="cH6-pj-2za" id="oZs-G4-3Z5"/>
                 <outlet property="topView" destination="c22-O7-iKe" id="JP8-Fj-7f7"/>
             </connections>
         </customObject>
@@ -16,26 +17,18 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="379"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wVO-XV-pAO">
-                    <rect key="frame" x="25" y="333" width="75" height="29"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Doing" id="O0g-kD-Wax">
-                        <font key="font" size="24" name="SFProText-Bold"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CS-di-Lhv">
-                    <rect key="frame" x="24" y="0.0" width="432" height="320"/>
-                    <clipView key="contentView" drawsBackground="NO" id="GF4-FV-uHn">
-                        <rect key="frame" x="0.0" y="0.0" width="417" height="320"/>
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="379"/>
+                    <clipView key="contentView" drawsBackground="NO" id="GF4-FV-uHn" customClass="ClipView" customModule="the_system" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="469" height="379"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView importsGraphics="NO" verticallyResizable="YES" allowsUndo="YES" smartInsertDelete="YES" id="cH6-pj-2za" customClass="DoingTextView" customModule="the_system" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="417" height="320"/>
+                                <rect key="frame" x="0.0" y="0.0" width="469" height="379"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="417" height="320"/>
+                                <size key="minSize" width="469" height="379"/>
                                 <size key="maxSize" width="480" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
@@ -45,19 +38,38 @@
                         <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="9wf-eC-7ay">
-                        <rect key="frame" x="417" y="0.0" width="15" height="320"/>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" controlSize="mini" horizontal="NO" id="9wf-eC-7ay">
+                        <rect key="frame" x="469" y="0.0" width="11" height="379"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="iHO-R9-LzF">
+                    <rect key="frame" x="0.0" y="319" width="480" height="60"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wVO-XV-pAO">
+                            <rect key="frame" x="25" y="14" width="75" height="29"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Doing" id="O0g-kD-Wax">
+                                <font key="font" size="24" name="SFProText-Bold"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wVO-XV-pAO" firstAttribute="leading" secondItem="iHO-R9-LzF" secondAttribute="leading" constant="27" id="5uN-ua-zhX"/>
+                        <constraint firstItem="wVO-XV-pAO" firstAttribute="top" secondItem="iHO-R9-LzF" secondAttribute="top" constant="17" id="D8Y-lN-0N4"/>
+                        <constraint firstAttribute="height" constant="60" id="lug-sp-y69"/>
+                    </constraints>
+                </customView>
             </subviews>
             <constraints>
-                <constraint firstItem="wVO-XV-pAO" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="27" id="HD1-2P-di5"/>
+                <constraint firstItem="iHO-R9-LzF" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="2IC-ch-SdA"/>
+                <constraint firstAttribute="trailing" secondItem="iHO-R9-LzF" secondAttribute="trailing" id="Dir-5C-8LU"/>
+                <constraint firstItem="iHO-R9-LzF" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="KN1-R4-sih"/>
                 <constraint firstAttribute="bottom" secondItem="9CS-di-Lhv" secondAttribute="bottom" id="Qp4-AL-8tk"/>
-                <constraint firstItem="cH6-pj-2za" firstAttribute="top" secondItem="wVO-XV-pAO" secondAttribute="bottom" constant="13" id="S5l-o8-stC"/>
-                <constraint firstItem="wVO-XV-pAO" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="17" id="ekx-VO-TQf"/>
-                <constraint firstItem="9CS-di-Lhv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="24" id="gnf-bb-bla"/>
-                <constraint firstAttribute="trailing" secondItem="9CS-di-Lhv" secondAttribute="trailing" constant="24" id="s0T-IM-HpK"/>
+                <constraint firstItem="9CS-di-Lhv" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="ei8-6R-jHk"/>
+                <constraint firstItem="9CS-di-Lhv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="gnf-bb-bla"/>
+                <constraint firstAttribute="trailing" secondItem="9CS-di-Lhv" secondAttribute="trailing" id="s0T-IM-HpK"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>

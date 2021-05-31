@@ -817,7 +817,7 @@
                 </windowController>
                 <customObject id="xYe-Hs-ql2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="250"/>
+            <point key="canvasLocation" x="2149" y="232"/>
         </scene>
         <!--Single View Controller-->
         <scene sceneID="CJ0-QD-bTY">
@@ -889,6 +889,11 @@
                             </splitView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="distractionsView" destination="oX0-20-jYU" id="52U-7F-eVH"/>
+                        <outlet property="doingView" destination="C6h-VL-6F7" id="894-zk-YYk"/>
+                        <outlet property="todoView" destination="i6v-39-913" id="Atp-eB-Yhl"/>
+                    </connections>
                 </viewController>
                 <customObject id="WVM-Si-oCa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

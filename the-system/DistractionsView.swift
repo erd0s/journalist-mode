@@ -4,6 +4,7 @@ import Cocoa
 class DistractionsView: NSView
 {
     @IBOutlet var topView: NSView!
+    @IBOutlet var distractionsTextView: TextView!
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         

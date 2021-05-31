@@ -3,6 +3,7 @@ import Cocoa
 @IBDesignable
 class TodoView: NSView {
     @IBOutlet var topView: TodoView!
+    @IBOutlet var todoTextView: TodoTextView!
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         

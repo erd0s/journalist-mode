@@ -22,7 +22,8 @@ class Document: NSDocument {
     
     func enableWindow(type: SystemPart) {
         if (displayType == .Single) {
-            // Nothing to do here
+            // Put the cursor in the correct box
+            singleWindowController.selectPart(type: type)
         } else {
             doingWindowController.showWindow(nil)
             todoWindowController.showWindow(nil)

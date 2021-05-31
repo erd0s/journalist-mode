@@ -3,6 +3,7 @@ import AppKit
 @IBDesignable
 class DoingView: NSView {
     @IBOutlet var topView: NSView!
+    @IBOutlet var doingTextView: DoingTextView!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

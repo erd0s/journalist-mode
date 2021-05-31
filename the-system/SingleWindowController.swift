@@ -14,5 +14,8 @@ class SingleWindowController: NSWindowController {
     
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
-
+    
+    func selectPart(type: SystemPart) {
+        (contentViewController as! SingleViewController).selectPart(type: type)
+    }
 }
