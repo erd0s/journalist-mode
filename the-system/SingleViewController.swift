@@ -28,4 +28,13 @@ class SingleViewController: NSViewController {
             distractionsView.window?.makeFirstResponder(distractionsView.distractionsTextView)
         }
     }
+    
+    override var representedObject: Any? {
+        didSet {
+            // Pass down the represented object to all of the child view controllers.
+            for child in children {
+                child.representedObject = representedObject
+            }
+        }
+    }
 }
