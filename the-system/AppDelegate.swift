@@ -24,5 +24,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationOpenUntitledFile(_ sender: NSApplication) -> Bool {
         return false
     }
+    
+    @IBAction func debugDoingText(_ sender: Any) {
+        if let swc = (documentController?.documents.first?.windowControllers.first!.contentViewController)! as? SingleViewController {
+            swc.doingTextView.debug()
+        }
+    }
 }
 

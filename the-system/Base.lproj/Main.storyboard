@@ -115,6 +115,11 @@
                                                 <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Debug Doing Text" keyEquivalent="W" id="wD6-WA-Fvh">
+                                            <connections>
+                                                <action selector="debugDoingText:" target="Voe-Tx-rLC" id="ThI-ZZ-eRb"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -735,6 +740,13 @@
                                                             <size key="minSize" width="539" height="627"/>
                                                             <size key="maxSize" width="539" height="10000000"/>
                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <connections>
+                                                                <binding destination="xCo-Kd-HhW" name="attributedString" keyPath="representedObject.doingString" id="iYw-MD-afA">
+                                                                    <dictionary key="options">
+                                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                    </dictionary>
+                                                                </binding>
+                                                            </connections>
                                                         </textView>
                                                     </subviews>
                                                 </clipView>
@@ -801,6 +813,13 @@
                                                                             <size key="minSize" width="527" height="301"/>
                                                                             <size key="maxSize" width="527" height="10000000"/>
                                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <connections>
+                                                                                <binding destination="xCo-Kd-HhW" name="attributedString" keyPath="representedObject.todoString" id="x5U-iM-pFi">
+                                                                                    <dictionary key="options">
+                                                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                            </connections>
                                                                         </textView>
                                                                     </subviews>
                                                                 </clipView>
@@ -860,6 +879,13 @@
                                                                             <size key="minSize" width="527" height="316"/>
                                                                             <size key="maxSize" width="527" height="10000000"/>
                                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <connections>
+                                                                                <binding destination="xCo-Kd-HhW" name="attributedString" keyPath="representedObject.distractionsString" id="kUb-Hm-5wh">
+                                                                                    <dictionary key="options">
+                                                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                                                    </dictionary>
+                                                                                </binding>
+                                                                            </connections>
                                                                         </textView>
                                                                     </subviews>
                                                                 </clipView>
@@ -918,7 +944,9 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="distractionsView" destination="oX0-20-jYU" id="52U-7F-eVH"/>
+                        <outlet property="distractionsTextView" destination="pl5-bH-C8o" id="SW5-qy-xeA"/>
+                        <outlet property="doingTextView" destination="va9-aN-4w8" id="7Rb-5p-IHd"/>
+                        <outlet property="todoTextView" destination="AIA-A5-lo5" id="dSW-Cg-Gff"/>
                     </connections>
                 </viewController>
                 <customObject id="WVM-Si-oCa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

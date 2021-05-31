@@ -9,9 +9,10 @@ import Cocoa
 
 class SingleViewController: NSViewController {
     
-    @IBOutlet weak var doingView: DoingView!
-    @IBOutlet weak var todoView: TodoView!
-    @IBOutlet weak var distractionsView: DistractionsView!
+    @IBOutlet var doingTextView: DoingTextView!
+    @IBOutlet var todoTextView: TodoTextView!
+    @IBOutlet var distractionsTextView: TextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +22,11 @@ class SingleViewController: NSViewController {
     func selectPart(type: SystemPart) {
         switch type {
         case .Doing:
-            doingView.window?.makeFirstResponder(doingView.doingTextView)
+            doingTextView.window?.makeFirstResponder(doingTextView)
         case .Todo:
-            todoView.window?.makeFirstResponder(todoView.todoTextView)
+            todoTextView.window?.makeFirstResponder(todoTextView)
         case .Distractions:
-            distractionsView.window?.makeFirstResponder(distractionsView.distractionsTextView)
+            distractionsTextView.window?.makeFirstResponder(distractionsTextView)
         }
     }
     
