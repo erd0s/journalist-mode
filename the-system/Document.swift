@@ -3,9 +3,6 @@ import Cocoa
 class Document: NSDocument {
     
     @objc var content = Content(doing: "", todo: "", distractions: "")
-    var doingWindowController: DoingWindowController!
-    var todoWindowController: TodoWindowController!
-    var distractionsWindowController: DistractionsWindowController!
     
     var singleWindowController: SingleWindowController!
     
@@ -21,33 +18,12 @@ class Document: NSDocument {
     }
     
     func enableWindow(type: SystemPart) {
-        if (displayType == .Single) {
-            // Put the cursor in the correct box
-            singleWindowController.selectPart(type: type)
-        } else {
-            doingWindowController.showWindow(nil)
-            todoWindowController.showWindow(nil)
-            distractionsWindowController.showWindow(nil)
-            
-            switch type {
-            case .Doing:
-                doingWindowController.showWindow(nil)
-            case .Todo:
-                todoWindowController.showWindow(nil)
-            case .Distractions:
-                distractionsWindowController.showWindow(nil)
-            }
-        }
+        // Put the cursor in the correct box
+        singleWindowController.selectPart(type: type)
     }
 
     override func makeWindowControllers() {
-        if (displayType == .Single) {
-            singleWindowController = makeController(identifier: "Single Window Controller") as? SingleWindowController
-        } else {
-            doingWindowController = makeController(identifier: "Doing Window Controller") as? DoingWindowController
-            todoWindowController = makeController(identifier: "Todo Window Controller") as? TodoWindowController
-            distractionsWindowController = makeController(identifier: "Distractions Window Controller") as? DistractionsWindowController
-        }
+        singleWindowController = makeController(identifier: "Single Window Controller") as? SingleWindowController
     }
     
     func makeController(identifier: String) -> NSWindowController {
@@ -59,9 +35,8 @@ class Document: NSDocument {
     }
     
     override func data(ofType typeName: String) throws -> Data {
-        if (displayType == .Multi) {
-            (doingWindowController.contentViewController as! DoingViewController).forceUpdate()
-        }
+        // TODO - Maybe we need this?
+        // (doingWindowController.contentViewController as! DoingViewController).forceUpdate()
         return content.data()!
     }
 

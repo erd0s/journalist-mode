@@ -1,12 +1,5 @@
 import Cocoa
 
-enum DisplayType {
-    case Single
-    case Multi
-}
-
-var displayType: DisplayType = .Single
-
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 

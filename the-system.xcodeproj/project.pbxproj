@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		430C965C2657A5AF00085D71 /* DoingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430C965B2657A5AF00085D71 /* DoingView.xib */; };
 		430C96622657A5C900085D71 /* TodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430C96612657A5C900085D71 /* TodoView.xib */; };
 		430C96662657A5D800085D71 /* DistractionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430C96652657A5D800085D71 /* DistractionsView.xib */; };
 		430C96692657A69800085D71 /* DoingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C96682657A69800085D71 /* DoingView.swift */; };
@@ -18,10 +17,7 @@
 		430C96A12657C93C00085D71 /* ClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C96A02657C93C00085D71 /* ClipView.swift */; };
 		431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F5A61260D222C003E40AD /* TodoTextView.swift */; };
 		431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431F5A64260DE7CF003E40AD /* DoingTextView.swift */; };
-		432347CE26135E8800E465DE /* DoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347CD26135E8800E465DE /* DoingViewController.swift */; };
 		432347D126135F6300E465DE /* AttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347D026135F6300E465DE /* AttributedStringExtensions.swift */; };
-		432347D42613A12B00E465DE /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347D32613A12B00E465DE /* TodoViewController.swift */; };
-		432347D92613A14400E465DE /* DistractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347D82613A14400E465DE /* DistractionsViewController.swift */; };
 		432347E02613A9FE00E465DE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347DF2613A9FE00E465DE /* StringExtensions.swift */; };
 		43336F0F26171F7600567AA0 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43336F0E26171F7600567AA0 /* SequenceExtensions.swift */; };
 		43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4325EC52FF009CDF4D /* AppDelegate.swift */; };
@@ -31,16 +27,12 @@
 		43EB0D4D25EC5300009CDF4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43EB0D4B25EC5300009CDF4D /* Main.storyboard */; };
 		43EB0D5825EC5342009CDF4D /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = 43EB0D5725EC5342009CDF4D /* HotKey */; };
 		43EB0D5B25EC5365009CDF4D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D5A25EC5365009CDF4D /* Content.swift */; };
-		43EB0D5E25EC5392009CDF4D /* DistractionsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D5D25EC5392009CDF4D /* DistractionsWindowController.swift */; };
-		43EB0D6125EC53BB009CDF4D /* DoingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D6025EC53BB009CDF4D /* DoingWindowController.swift */; };
-		43EB0D6425EC53D4009CDF4D /* TodoWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D6325EC53D4009CDF4D /* TodoWindowController.swift */; };
 		43EB0D6825EC56D0009CDF4D /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D6725EC56D0009CDF4D /* DocumentController.swift */; };
 		43EB0D6B25EC59D4009CDF4D /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D6A25EC59D4009CDF4D /* TextView.swift */; };
 		43EB0D6E25EC5BFF009CDF4D /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D6D25EC5BFF009CDF4D /* Window.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		430C965B2657A5AF00085D71 /* DoingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoingView.xib; sourceTree = "<group>"; };
 		430C96612657A5C900085D71 /* TodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoView.xib; sourceTree = "<group>"; };
 		430C96652657A5D800085D71 /* DistractionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistractionsView.xib; sourceTree = "<group>"; };
 		430C96682657A69800085D71 /* DoingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingView.swift; sourceTree = "<group>"; };
@@ -51,10 +43,7 @@
 		430C96A02657C93C00085D71 /* ClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipView.swift; sourceTree = "<group>"; };
 		431F5A61260D222C003E40AD /* TodoTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTextView.swift; sourceTree = "<group>"; };
 		431F5A64260DE7CF003E40AD /* DoingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingTextView.swift; sourceTree = "<group>"; };
-		432347CD26135E8800E465DE /* DoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingViewController.swift; sourceTree = "<group>"; };
 		432347D026135F6300E465DE /* AttributedStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExtensions.swift; sourceTree = "<group>"; };
-		432347D32613A12B00E465DE /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
-		432347D82613A14400E465DE /* DistractionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistractionsViewController.swift; sourceTree = "<group>"; };
 		432347DF2613A9FE00E465DE /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		43336F0E26171F7600567AA0 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		43EB0D4025EC52FF009CDF4D /* the-system.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the-system.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,9 +55,6 @@
 		43EB0D4E25EC5300009CDF4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43EB0D4F25EC5300009CDF4D /* the_system.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = the_system.entitlements; sourceTree = "<group>"; };
 		43EB0D5A25EC5365009CDF4D /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
-		43EB0D5D25EC5392009CDF4D /* DistractionsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistractionsWindowController.swift; sourceTree = "<group>"; };
-		43EB0D6025EC53BB009CDF4D /* DoingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingWindowController.swift; sourceTree = "<group>"; };
-		43EB0D6325EC53D4009CDF4D /* TodoWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoWindowController.swift; sourceTree = "<group>"; };
 		43EB0D6725EC56D0009CDF4D /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		43EB0D6A25EC59D4009CDF4D /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		43EB0D6D25EC5BFF009CDF4D /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -116,12 +102,6 @@
 				43EB0D4B25EC5300009CDF4D /* Main.storyboard */,
 				43EB0D4E25EC5300009CDF4D /* Info.plist */,
 				43EB0D4F25EC5300009CDF4D /* the_system.entitlements */,
-				43EB0D6025EC53BB009CDF4D /* DoingWindowController.swift */,
-				432347CD26135E8800E465DE /* DoingViewController.swift */,
-				43EB0D6325EC53D4009CDF4D /* TodoWindowController.swift */,
-				432347D32613A12B00E465DE /* TodoViewController.swift */,
-				43EB0D5D25EC5392009CDF4D /* DistractionsWindowController.swift */,
-				432347D82613A14400E465DE /* DistractionsViewController.swift */,
 				43EB0D6D25EC5BFF009CDF4D /* Window.swift */,
 				43EB0D6A25EC59D4009CDF4D /* TextView.swift */,
 				431F5A61260D222C003E40AD /* TodoTextView.swift */,
@@ -129,7 +109,6 @@
 				432347D026135F6300E465DE /* AttributedStringExtensions.swift */,
 				432347DF2613A9FE00E465DE /* StringExtensions.swift */,
 				43336F0E26171F7600567AA0 /* SequenceExtensions.swift */,
-				430C965B2657A5AF00085D71 /* DoingView.xib */,
 				430C96612657A5C900085D71 /* TodoView.xib */,
 				430C96652657A5D800085D71 /* DistractionsView.xib */,
 				430C96682657A69800085D71 /* DoingView.swift */,
@@ -205,7 +184,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				430C965C2657A5AF00085D71 /* DoingView.xib in Resources */,
 				430C96662657A5D800085D71 /* DistractionsView.xib in Resources */,
 				43EB0D4A25EC5300009CDF4D /* Assets.xcassets in Resources */,
 				430C96622657A5C900085D71 /* TodoView.xib in Resources */,
@@ -224,24 +202,18 @@
 				43EB0D4625EC52FF009CDF4D /* ViewController.swift in Sources */,
 				43EB0D6E25EC5BFF009CDF4D /* Window.swift in Sources */,
 				430C966C2657A6A000085D71 /* TodoView.swift in Sources */,
-				432347D92613A14400E465DE /* DistractionsViewController.swift in Sources */,
-				43EB0D6425EC53D4009CDF4D /* TodoWindowController.swift in Sources */,
-				43EB0D6125EC53BB009CDF4D /* DoingWindowController.swift in Sources */,
 				432347D126135F6300E465DE /* AttributedStringExtensions.swift in Sources */,
-				43EB0D5E25EC5392009CDF4D /* DistractionsWindowController.swift in Sources */,
 				43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */,
 				431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */,
 				430C96692657A69800085D71 /* DoingView.swift in Sources */,
 				431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */,
 				43336F0F26171F7600567AA0 /* SequenceExtensions.swift in Sources */,
 				43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */,
-				432347D42613A12B00E465DE /* TodoViewController.swift in Sources */,
 				43EB0D6B25EC59D4009CDF4D /* TextView.swift in Sources */,
 				430C966F2657A6AB00085D71 /* DistractionsView.swift in Sources */,
 				43EB0D6825EC56D0009CDF4D /* DocumentController.swift in Sources */,
 				43EB0D5B25EC5365009CDF4D /* Content.swift in Sources */,
 				430C96A12657C93C00085D71 /* ClipView.swift in Sources */,
-				432347CE26135E8800E465DE /* DoingViewController.swift in Sources */,
 				430C969B2657BA4500085D71 /* SingleViewController.swift in Sources */,
 				432347E02613A9FE00E465DE /* StringExtensions.swift in Sources */,
 			);

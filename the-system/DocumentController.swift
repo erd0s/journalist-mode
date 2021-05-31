@@ -25,27 +25,11 @@ class DocumentController: NSDocumentController {
 
     func showAll(andActivate: SystemPart) {
         NSRunningApplication.current.activate(options: [NSApplication.ActivationOptions.activateAllWindows, NSApplication.ActivationOptions.activateIgnoringOtherApps])
-
-        if displayType == .Multi {
-            // TODO: We're expecting there to always be a single opened document at any one time, check for that here, maybe
-            //       create a new one if we need to
-
-            if (documents.count == 0) {
-                // TODO: Create?
-                print("hmmm")
-            } else if (documents.count == 1) {
-                (documents[0] as! Document).enableWindow(type: andActivate)
-            } else {
-                // TODO: More unexpected behaviour
-                print("hmmm")
-            }
-        } else {
-            if let firstDoc = documents.first as? Document {
-                firstDoc.enableWindow(type: andActivate)
-            }
-            else {
-                print("Didn't find any windows to activate")
-            }
+        if let firstDoc = documents.first as? Document {
+            firstDoc.enableWindow(type: andActivate)
+        }
+        else {
+            print("Didn't find any windows to activate")
         }
     }
     
