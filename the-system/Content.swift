@@ -41,20 +41,57 @@ class Content: NSObject {
             }
 
             // Deal with the indent
-            let indentSize = CGFloat(numSpaces/2 * 15)
+            let indentSize = CGFloat(numSpaces/4 * 15)
             let indent = NSMutableParagraphStyle()
             indent.headIndent = indentSize
             indent.firstLineHeadIndent = indentSize
-
-            attributedString.addAttribute(.paragraphStyle, value: indent, range: NSRange(location: 0, length: trimmed.count))
+            indent.lineSpacing = 10
+            
+            let length = NSRange(location: 0, length: trimmed.count)
+            attributedString.addAttribute(.font, value: defaultFont, range: length)
+            attributedString.addAttribute(.paragraphStyle, value: indent, range: length)
             doingAttributedStrings.append(attributedString)
         }
         doingString.append(doingAttributedStrings.joined(with: "\n"))
 
-        // Todo string
-//        let todoLines = sections[1].split(separator: "\n")
-        todoString.append(NSMutableAttributedString(string: sections[1]))
-        distractionsString.append(NSMutableAttributedString(string: sections[2]))
+        // MARK: - Todo string
+        
+        var todoAttributedStrings: [NSMutableAttributedString] = []
+        let todoLines = sections[1].split(separator: "\n")
+        todoLines.forEach { (line) in
+            var string = line
+            
+            // Strip the starting
+            var attributedString: NSMutableAttributedString
+            if string.prefix(2) == "~~" && string.suffix(2) == "~~" {
+                // It's completed
+                string.removeLast(2)
+                string.removeFirst(2)
+                attributedString = NSMutableAttributedString(string: String(string), attributes: [NSAttributedString.Key.strikethroughStyle: 2])
+            } else {
+                // Not completed
+                attributedString = NSMutableAttributedString(string: String(string))
+            }
+            
+            let para = NSMutableParagraphStyle()
+            para.lineSpacing = 10
+            let length = NSRange(location: 0, length: string.count)
+            attributedString.addAttribute(.font, value: defaultFont, range: length)
+            attributedString.addAttribute(.paragraphStyle, value: para, range: length)
+            todoAttributedStrings.append(attributedString)
+        }
+        todoString.append(todoAttributedStrings.joined(with: "\n"))
+        
+        let defaultParagraphStyle = NSMutableParagraphStyle()
+        defaultParagraphStyle.lineSpacing = 10
+        
+        // MARK: - Distractions
+        
+        let distractionsAttributedString = NSMutableAttributedString(string: sections[2])
+        let distractionsRange = NSRange(location: 0, length: distractionsAttributedString.length)
+        distractionsAttributedString.addAttribute(.font, value: defaultFont, range: distractionsRange)
+        distractionsAttributedString.addAttribute(.paragraphStyle, value: defaultParagraphStyle, range: distractionsRange)
+        distractionsString.append(distractionsAttributedString)
     }
     
     func data() -> Data? {

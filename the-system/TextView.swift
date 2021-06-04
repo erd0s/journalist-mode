@@ -1,20 +1,13 @@
 import Cocoa
 import Carbon
 
+let defaultFont = NSFont(name: "SF Pro Text", size: 14)
+
 class TextView: NSTextView, NSTextViewDelegate {
-    
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
-        typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
-        delegate = self
-    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
+        textStorage?.font = defaultFont
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10
         typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
@@ -33,6 +26,17 @@ class TextView: NSTextView, NSTextViewDelegate {
     override func paste(_ sender: Any?) {
        pasteAsPlainText(sender)
     }
+    
+    // MARK: - NSTextDelegate (from NSTextViewDelegate)
+    
+    func textDidChange(_ notification: Notification) {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 10
+        defaultParagraphStyle = style
+        textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
+    }
+    
+    // MARK: - Custom
     
     func getLineRange(string: NSString, selectedRange: NSRange) -> NSRange {
         // Look backwards from this range for a newline
@@ -166,13 +170,6 @@ class TextView: NSTextView, NSTextViewDelegate {
         }
         let previousLineEnd = NSRange(location: selection.location-1, length: 0)
         return getLineRange(string: string as NSString, selectedRange: previousLineEnd)
-    }
-    
-    func textDidChange(_ notification: Notification) {
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
-        defaultParagraphStyle = style
-        textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
     }
     
     func debug() {

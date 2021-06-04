@@ -13,7 +13,6 @@ class SingleViewController: NSViewController {
     @IBOutlet var todoTextView: TodoTextView!
     @IBOutlet var distractionsTextView: TextView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
