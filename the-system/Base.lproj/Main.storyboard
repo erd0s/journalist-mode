@@ -728,7 +728,7 @@
                                         <subviews>
                                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSX-4j-0ja">
                                                 <rect key="frame" x="0.0" y="0.0" width="550" height="627"/>
-                                                <clipView key="contentView" drawsBackground="NO" id="JY7-ba-Zrh" customClass="ClipView" customModule="the_system" customModuleProvider="target">
+                                                <clipView key="contentView" id="JY7-ba-Zrh" customClass="ClipView" customModule="the_system" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="539" height="627"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -738,7 +738,7 @@
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             <size key="minSize" width="539" height="627"/>
-                                                            <size key="maxSize" width="539" height="10000000"/>
+                                                            <size key="maxSize" width="550" height="10000000"/>
                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <connections>
                                                                 <binding destination="xCo-Kd-HhW" name="attributedString" keyPath="representedObject.doingString" id="iYw-MD-afA">
@@ -749,6 +749,7 @@
                                                             </connections>
                                                         </textView>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="goV-sG-nN8">
                                                     <rect key="frame" x="-100" y="-100" width="225" height="15"/>
@@ -762,7 +763,7 @@
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="SjE-Fv-ARq">
                                                 <rect key="frame" x="0.0" y="567" width="550" height="60"/>
                                                 <subviews>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-M9-pAy">
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-M9-pAy">
                                                         <rect key="frame" x="25" y="14" width="75" height="29"/>
                                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Doing" id="05h-il-JVq">
                                                             <font key="font" size="24" name="SFProText-Bold"/>
@@ -773,6 +774,7 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="OG7-fL-0YK"/>
+                                                    <constraint firstItem="5ZW-M9-pAy" firstAttribute="leading" secondItem="SjE-Fv-ARq" secondAttribute="leading" constant="27" id="lcV-Ge-SdM"/>
                                                     <constraint firstItem="5ZW-M9-pAy" firstAttribute="top" secondItem="SjE-Fv-ARq" secondAttribute="top" constant="17" id="tJc-4E-5ld"/>
                                                 </constraints>
                                             </customView>
@@ -801,7 +803,7 @@
                                                         <subviews>
                                                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-qr-WG6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="542" height="301"/>
-                                                                <clipView key="contentView" drawsBackground="NO" id="FQS-xP-plf" customClass="ClipView" customModule="the_system" customModuleProvider="target">
+                                                                <clipView key="contentView" id="FQS-xP-plf" customClass="ClipView" customModule="the_system" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="527" height="301"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
@@ -811,7 +813,7 @@
                                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                             <size key="minSize" width="527" height="301"/>
-                                                                            <size key="maxSize" width="527" height="10000000"/>
+                                                                            <size key="maxSize" width="542" height="10000000"/>
                                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                             <connections>
                                                                                 <binding destination="xCo-Kd-HhW" name="attributedString" keyPath="representedObject.todoString" id="x5U-iM-pFi">
@@ -822,6 +824,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </clipView>
                                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="5Ec-Rf-KpM">
                                                                     <rect key="frame" x="-100" y="-100" width="225" height="15"/>
@@ -867,7 +870,7 @@
                                                         <subviews>
                                                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXy-l2-Idn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="542" height="316"/>
-                                                                <clipView key="contentView" drawsBackground="NO" id="vkk-jS-ZzO" customClass="ClipView" customModule="the_system" customModuleProvider="target">
+                                                                <clipView key="contentView" id="vkk-jS-ZzO" customClass="ClipView" customModule="the_system" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="527" height="316"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
@@ -877,7 +880,7 @@
                                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                             <size key="minSize" width="527" height="316"/>
-                                                                            <size key="maxSize" width="527" height="10000000"/>
+                                                                            <size key="maxSize" width="542" height="10000000"/>
                                                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                             <connections>
                                                                                 <binding destination="xCo-Kd-HhW" name="attributedString" keyPath="representedObject.distractionsString" id="kUb-Hm-5wh">
@@ -888,6 +891,7 @@
                                                                             </connections>
                                                                         </textView>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </clipView>
                                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="57R-zC-7Pw">
                                                                     <rect key="frame" x="-100" y="-100" width="225" height="15"/>
