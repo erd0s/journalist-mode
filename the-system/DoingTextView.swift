@@ -16,6 +16,13 @@ class DoingTextView: TextView {
     }
     
     func newTask(with event: NSEvent) {
+        let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
+        
+        // Check if the current line is empty (don't let them have a blank line in the doing view)
+        if (currentLineRange.location + 1 >= string.count) {
+            return
+        }
+        
         // Check if we need to start a new top level task
         if areAllTasksComplete() {
             // New top level item
@@ -29,8 +36,6 @@ class DoingTextView: TextView {
             super.keyDown(with: event)
             return
         }
-        
-        let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
         
         let linesAhead = getAllLinesAfterCurrent()
 
@@ -74,6 +79,13 @@ class DoingTextView: TextView {
     
     func completeTask() {
         let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
+        
+        // TODO: - This should be changed with something that DELETES any trailing empty lines, so that when they
+        // manually move their cursor around those last lines are also deleted
+        // If they're completing an empty line, delete that line
+        if (currentLineRange.location + 1 >= string.count) {
+            textStorage?.setAttributedString((textStorage?.attributedSubstring(from: NSRange(location: 0, length: textStorage!.length-1)))!)
+        }
         
         if isTopOfStack() && !isLineCompleted(range: currentLineRange) {
             // They're at the last task in the stack and it's not yet completed
