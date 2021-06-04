@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		430C96622657A5C900085D71 /* TodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430C96612657A5C900085D71 /* TodoView.xib */; };
-		430C96662657A5D800085D71 /* DistractionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 430C96652657A5D800085D71 /* DistractionsView.xib */; };
-		430C96692657A69800085D71 /* DoingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C96682657A69800085D71 /* DoingView.swift */; };
-		430C966C2657A6A000085D71 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C966B2657A6A000085D71 /* TodoView.swift */; };
-		430C966F2657A6AB00085D71 /* DistractionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C966E2657A6AB00085D71 /* DistractionsView.swift */; };
 		430C969B2657BA4500085D71 /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C969A2657BA4500085D71 /* SingleViewController.swift */; };
 		430C969E2657BB8C00085D71 /* SingleWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C969D2657BB8C00085D71 /* SingleWindowController.swift */; };
 		430C96A12657C93C00085D71 /* ClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430C96A02657C93C00085D71 /* ClipView.swift */; };
@@ -32,11 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		430C96612657A5C900085D71 /* TodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoView.xib; sourceTree = "<group>"; };
-		430C96652657A5D800085D71 /* DistractionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistractionsView.xib; sourceTree = "<group>"; };
-		430C96682657A69800085D71 /* DoingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingView.swift; sourceTree = "<group>"; };
-		430C966B2657A6A000085D71 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
-		430C966E2657A6AB00085D71 /* DistractionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistractionsView.swift; sourceTree = "<group>"; };
 		430C969A2657BA4500085D71 /* SingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
 		430C969D2657BB8C00085D71 /* SingleWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWindowController.swift; sourceTree = "<group>"; };
 		430C96A02657C93C00085D71 /* ClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipView.swift; sourceTree = "<group>"; };
@@ -106,11 +96,6 @@
 				432347D026135F6300E465DE /* AttributedStringExtensions.swift */,
 				432347DF2613A9FE00E465DE /* StringExtensions.swift */,
 				43336F0E26171F7600567AA0 /* SequenceExtensions.swift */,
-				430C96612657A5C900085D71 /* TodoView.xib */,
-				430C96652657A5D800085D71 /* DistractionsView.xib */,
-				430C96682657A69800085D71 /* DoingView.swift */,
-				430C966B2657A6A000085D71 /* TodoView.swift */,
-				430C966E2657A6AB00085D71 /* DistractionsView.swift */,
 				430C969A2657BA4500085D71 /* SingleViewController.swift */,
 				430C969D2657BB8C00085D71 /* SingleWindowController.swift */,
 				430C96A02657C93C00085D71 /* ClipView.swift */,
@@ -181,9 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				430C96662657A5D800085D71 /* DistractionsView.xib in Resources */,
 				43EB0D4A25EC5300009CDF4D /* Assets.xcassets in Resources */,
-				430C96622657A5C900085D71 /* TodoView.xib in Resources */,
 				43EB0D4D25EC5300009CDF4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,16 +180,13 @@
 			files = (
 				430C969E2657BB8C00085D71 /* SingleWindowController.swift in Sources */,
 				43EB0D4625EC52FF009CDF4D /* ViewController.swift in Sources */,
-				430C966C2657A6A000085D71 /* TodoView.swift in Sources */,
 				432347D126135F6300E465DE /* AttributedStringExtensions.swift in Sources */,
 				43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */,
 				431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */,
-				430C96692657A69800085D71 /* DoingView.swift in Sources */,
 				431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */,
 				43336F0F26171F7600567AA0 /* SequenceExtensions.swift in Sources */,
 				43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */,
 				43EB0D6B25EC59D4009CDF4D /* TextView.swift in Sources */,
-				430C966F2657A6AB00085D71 /* DistractionsView.swift in Sources */,
 				43EB0D6825EC56D0009CDF4D /* DocumentController.swift in Sources */,
 				43EB0D5B25EC5365009CDF4D /* Content.swift in Sources */,
 				430C96A12657C93C00085D71 /* ClipView.swift in Sources */,
