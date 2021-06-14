@@ -42,7 +42,9 @@ struct DoingLine {
 
 class DoingTextView: TextView {
     let indentWidth = 15
-    let content: DoingContent = DoingContent()
+    var content: DoingContent = DoingContent()
+    
+    var observation: NSKeyValueObservation?
     
     required init?(coder: NSCoder) {
         content.addLine(line: DoingLine(indent: 0, complete: false))
@@ -126,6 +128,23 @@ class DoingTextView: TextView {
     }
     
     // MARK: - Utility functions
+    
+    // Make the content object match what we currently have in textStorage, called after file is loaded
+    func updateContent(fromAttributedString attributedString: NSMutableAttributedString) {
+        let doingLines = attributedString.getAllLinesAhead(startingAt: 0)
+        var doingAsciiLines: [String] = []
+        attributedString.enumerateAttributes(in: NSRange(location: 0, length: attributedString.length), options: []) { (attributes, range, _) in
+            print(attributes)
+        }
+        content = DoingContent()
+        doingLines.forEach { (attributedString) in
+            // Get indent
+            let indentLevel = attributedString.getLineIndent() / 15
+            let completed: Bool = attributedString.isLineComplete()
+            
+            content.addLine(line: DoingLine(indent: Int(indentLevel), complete: completed))
+        }
+    }
     
     func isLastLineEmpty() -> Bool {
         let lines = NSString(string: String(textStorage!.string)).components(separatedBy: "\n")

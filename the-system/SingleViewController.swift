@@ -12,10 +12,16 @@ class SingleViewController: NSViewController {
     @IBOutlet var doingTextView: DoingTextView!
     @IBOutlet var todoTextView: TodoTextView!
     @IBOutlet var distractionsTextView: TextView!
-     
+    
+    var observation: NSKeyValueObservation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        observation = observe(\.representedObject, options: .new) { (object, change) in
+            self.doingTextView.updateContent(fromAttributedString: (change.newValue as? Content)!.doingString)
+        }
     }
     
     func selectPart(type: SystemPart) {
