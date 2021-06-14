@@ -132,10 +132,6 @@ class DoingTextView: TextView {
     // Make the content object match what we currently have in textStorage, called after file is loaded
     func updateContent(fromAttributedString attributedString: NSMutableAttributedString) {
         let doingLines = attributedString.getAllLinesAhead(startingAt: 0)
-        var doingAsciiLines: [String] = []
-        attributedString.enumerateAttributes(in: NSRange(location: 0, length: attributedString.length), options: []) { (attributes, range, _) in
-            print(attributes)
-        }
         content = DoingContent()
         doingLines.forEach { (attributedString) in
             // Get indent
