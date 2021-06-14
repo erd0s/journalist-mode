@@ -15,6 +15,8 @@
 		432347D126135F6300E465DE /* AttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347D026135F6300E465DE /* AttributedStringExtensions.swift */; };
 		432347E02613A9FE00E465DE /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432347DF2613A9FE00E465DE /* StringExtensions.swift */; };
 		43336F0F26171F7600567AA0 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43336F0E26171F7600567AA0 /* SequenceExtensions.swift */; };
+		436A9C722677FB5700540476 /* TextView+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A9C712677FB5700540476 /* TextView+Debug.swift */; };
+		436A9C752677FB8C00540476 /* DoingTextView+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436A9C742677FB8C00540476 /* DoingTextView+Debug.swift */; };
 		43EB0D4425EC52FF009CDF4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4325EC52FF009CDF4D /* AppDelegate.swift */; };
 		43EB0D4625EC52FF009CDF4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4525EC52FF009CDF4D /* ViewController.swift */; };
 		43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D4725EC52FF009CDF4D /* Document.swift */; };
@@ -35,6 +37,8 @@
 		432347D026135F6300E465DE /* AttributedStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringExtensions.swift; sourceTree = "<group>"; };
 		432347DF2613A9FE00E465DE /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		43336F0E26171F7600567AA0 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		436A9C712677FB5700540476 /* TextView+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextView+Debug.swift"; sourceTree = "<group>"; };
+		436A9C742677FB8C00540476 /* DoingTextView+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoingTextView+Debug.swift"; sourceTree = "<group>"; };
 		43EB0D4025EC52FF009CDF4D /* the-system.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the-system.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43EB0D4325EC52FF009CDF4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43EB0D4525EC52FF009CDF4D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +93,9 @@
 				430C969A2657BA4500085D71 /* SingleViewController.swift */,
 				43EB0D5A25EC5365009CDF4D /* Content.swift */,
 				43EB0D6A25EC59D4009CDF4D /* TextView.swift */,
+				436A9C712677FB5700540476 /* TextView+Debug.swift */,
 				431F5A64260DE7CF003E40AD /* DoingTextView.swift */,
+				436A9C742677FB8C00540476 /* DoingTextView+Debug.swift */,
 				431F5A61260D222C003E40AD /* TodoTextView.swift */,
 				432347DF2613A9FE00E465DE /* StringExtensions.swift */,
 				43336F0E26171F7600567AA0 /* SequenceExtensions.swift */,
@@ -185,9 +191,11 @@
 				431F5A62260D222C003E40AD /* TodoTextView.swift in Sources */,
 				431F5A65260DE7CF003E40AD /* DoingTextView.swift in Sources */,
 				43336F0F26171F7600567AA0 /* SequenceExtensions.swift in Sources */,
+				436A9C752677FB8C00540476 /* DoingTextView+Debug.swift in Sources */,
 				43EB0D4825EC52FF009CDF4D /* Document.swift in Sources */,
 				43EB0D6B25EC59D4009CDF4D /* TextView.swift in Sources */,
 				43EB0D6825EC56D0009CDF4D /* DocumentController.swift in Sources */,
+				436A9C722677FB5700540476 /* TextView+Debug.swift in Sources */,
 				43EB0D5B25EC5365009CDF4D /* Content.swift in Sources */,
 				430C96A12657C93C00085D71 /* ClipView.swift in Sources */,
 				430C969B2657BA4500085D71 /* SingleViewController.swift in Sources */,
@@ -332,7 +340,7 @@
 				CODE_SIGN_ENTITLEMENTS = "the-system/the_system.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9VGT37D62W;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "the-system/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -353,7 +361,7 @@
 				CODE_SIGN_ENTITLEMENTS = "the-system/the_system.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9VGT37D62W;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "the-system/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

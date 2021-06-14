@@ -13,6 +13,8 @@ class TodoTextView: TextView {
     
     private func markDone(range: NSRange) {
         // Figure out where in the text we are
-        textStorage?.addAttribute(.strikethroughStyle, value: 2, range: getLineRange(string: string as NSString, selectedRange: selectedRange()))
+        let lineNumber = getLineNumber()
+        let lineRange = getLineRange(forLineNumber: lineNumber)
+        textStorage?.addAttribute(.strikethroughStyle, value: 2, range: lineRange)
     }
 }

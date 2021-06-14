@@ -26,8 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func debugDoingText(_ sender: Any) {
-        if let swc = (documentController?.documents.first?.windowControllers.first!.contentViewController)! as? SingleViewController {
-            swc.doingTextView.debug()
+        if let doc = documentController?.documents.first {
+            if let swc = doc.windowControllers.first {
+                if let svc = swc.contentViewController as? SingleViewController {
+                    svc.doingTextView.debug()
+                }
+            }
         }
     }
 }

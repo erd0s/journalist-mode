@@ -2,8 +2,52 @@ import Cocoa
 import Carbon
 import AppKit
 
+class DoingContent {
+    var lines: [DoingLine] = []
+    
+    func addLine(line: DoingLine) {
+        lines.append(line)
+    }
+    
+    func isTopOfStack(lineNumber: Int) -> Bool {
+        for index in stride(from: lines.count-1, to: lineNumber+1, by: -1) {
+            if lines[index].complete == false {
+                return false
+            }
+        }
+        
+        return !lines[lineNumber].complete
+    }
+    
+    // Returns the line number for the top of the stack, -1 if there is no incomplete task in stack
+    func topOfStack() -> Int {
+        for index in stride(from: lines.count-1, to: -1, by: -1) {
+            if lines[index].complete == false {
+                return index
+            }
+        }
+        
+        return -1
+    }
+    
+    func deleteLastLine() {
+        lines.popLast()
+    }
+}
+
+struct DoingLine {
+    var indent: Int
+    var complete: Bool
+}
+
 class DoingTextView: TextView {
     let indentWidth = 15
+    let content: DoingContent = DoingContent()
+    
+    required init?(coder: NSCoder) {
+        content.addLine(line: DoingLine(indent: 0, complete: false))
+        super.init(coder: coder)
+    }
     
     override func keyDown(with event: NSEvent) {
         if event.keyCode == kVK_Return && event.modifierFlags.contains(NSEvent.ModifierFlags.shift) {
@@ -16,89 +60,86 @@ class DoingTextView: TextView {
     }
     
     func newTask(with event: NSEvent) {
-        let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
-        
-        // Check if the current line is empty (don't let them have a blank line in the doing view)
-        if (currentLineRange.location + 1 >= string.count) {
+        // Check if the last line is empty (don't let them have a blank line in the doing view)
+        if isLastLineEmpty() {
             return
         }
         
-        // Check if we need to start a new top level task
-        if areAllTasksComplete() {
-            // New top level item
-            setSelectedRange(NSRange(location: string.count, length: 0))
-            
-            let style = NSMutableParagraphStyle()
-            style.lineSpacing = 10
-            style.firstLineHeadIndent = 0
-            style.headIndent = 0
-            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
-            super.keyDown(with: event)
-            return
-        }
+        // MARK: - NEW
         
-        let linesAhead = getAllLinesAfterCurrent()
-
+        // Get the deepest incomplete line and indent from there
+        let deepestIncomplete = content.lines.reduce(-1) { (currentResult, line) -> Int in
+            if !line.complete && line.indent > currentResult {
+                return line.indent
+            } else {
+                return currentResult
+            }
+        }
+        let indent = (deepestIncomplete + 1) * 15
+        
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10
+        style.firstLineHeadIndent = CGFloat(indent)
+        style.headIndent = CGFloat(indent)
         
-        if linesAhead.count > 0 && areAllLinesComplete(lines: linesAhead) && !isLineCompleted(range: currentLineRange) {
-            // They're at the last task in the stack and there's other completed tasks further down the page
-            
-            let indent: CGFloat = getCurrentLineIndent() + 15.0
-            
-            // Skipping to the end of the document
-            setSelectedRange(NSRange(location: string.count, length: 0))
-            style.firstLineHeadIndent = indent
-            style.headIndent = indent
-            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
-            super.keyDown(with: event)
-        } else if linesAhead.count > 0 {
-            // They're not at the last task in the stack, find that position and move them there
-            
-            // Skip to the top of the stack
-            let topOfStack = getTopOfStackRange()
-            
-            let indent: CGFloat = attributedString().attributedSubstring(from: topOfStack).getLineIndent() + 15.0
-            style.firstLineHeadIndent = indent
-            style.headIndent = indent
-            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
-            
-            setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length, length: 0))
-        } else {
-            // They're at the last position in the stack and there's no tasks further down the page
-            
-            let indent: CGFloat = getCurrentLineIndent() + 15.0
-            style.firstLineHeadIndent = indent
-            style.headIndent = indent
-            typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
-            
-            super.keyDown(with: event)
-        }
+        content.addLine(line: DoingLine(indent: deepestIncomplete + 1, complete: false))
+        
+        // Move to the end of the doc
+        setSelectedRange(NSRange(location: textStorage!.length, length: 0))
+        
+        super.keyDown(with: event)
+        typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
     }
     
     func completeTask() {
-        let currentLineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
-        
-        // TODO: - This should be changed with something that DELETES any trailing empty lines, so that when they
-        // manually move their cursor around those last lines are also deleted
         // If they're completing an empty line, delete that line
-        if (currentLineRange.location + 1 >= string.count) {
-            textStorage?.setAttributedString((textStorage?.attributedSubstring(from: NSRange(location: 0, length: textStorage!.length-1)))!)
+        if isLastLineEmpty() {
+            content.deleteLastLine()
+            deleteLastLine()
+            
+            // Move to the top of the stack
+            setSelectedRange(getEndOfLine(forLineNumber: content.topOfStack()))
+            return
         }
         
-        if isTopOfStack() && !isLineCompleted(range: currentLineRange) {
+        let lineNumber = getLineNumber()
+        let currentLine = content.lines[lineNumber]
+        
+        if content.isTopOfStack(lineNumber: lineNumber) && !currentLine.complete {
             // They're at the last task in the stack and it's not yet completed
             
             // Mark this line done
-            let lineRange = getLineRange(string: string as NSString, selectedRange: selectedRange())
+            let lineRange = getLineRange(forLineNumber: lineNumber)
+            
+            content.lines[getLineNumber()].complete = true
+            
             textStorage?.addAttribute(.strikethroughStyle, value: 2, range: lineRange)
         }
         
         // Move the cursor to the top of the stack
-        let topOfStack = getTopOfStackRange()
-        textStorage?.setAttributedString((textStorage?.attributedSubstring(from: NSRange(location: 0, length: textStorage!.length)))!)
-        setSelectedRange(NSRange(location: topOfStack.location + topOfStack.length, length: 0))
+        var topOfStack = content.topOfStack()
+        if topOfStack == -1 {
+            topOfStack = 0
+        }
+        let endOfLine = getEndOfLine(forLineNumber: topOfStack)
+        setSelectedRange(endOfLine)
     }
     
+    // MARK: - Utility functions
+    
+    func isLastLineEmpty() -> Bool {
+        let lines = NSString(string: String(textStorage!.string)).components(separatedBy: "\n")
+        let lastLine = lines[lines.count-1].replacingOccurrences(of: " ", with: "")
+        if lastLine.count == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func deleteLastLine() {
+        let lines = NSString(string: String(textStorage!.string)).components(separatedBy: "\n")
+        let endOfSecondLastLine = getEndOfLine(forLineNumber: lines.count-2)
+        textStorage?.setAttributedString((textStorage?.attributedSubstring(from: NSRange(location: 0, length: endOfSecondLastLine.location)))!)
+    }
 }
