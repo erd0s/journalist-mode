@@ -106,7 +106,6 @@ class DoingTextView: TextView {
                         
                         newString.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: newString.length))
                         textStorage?.replaceCharacters(in: lineRange, with: newString)
-//                        shouldChangeText(in: lineRange, replacementString: newString)
                         
                         indent = runningIndent + 15
                     }
@@ -132,7 +131,6 @@ class DoingTextView: TextView {
                         
                         newString.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: newString.length))
                         textStorage?.replaceCharacters(in: lineRange, with: newString)
-//                        shouldChangeText(in: lineRange, replacementString: newString)
                     }
                     break
                 }
@@ -175,7 +173,7 @@ class DoingTextView: TextView {
         setSelectedRange(NSRange(location: textStorage!.length, length: 0))
         
         super.keyDown(with: event)
-        typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+        typingAttributes = [NSAttributedString.Key.paragraphStyle: style, .font: NSFont(name: "SF Pro Text", size: 14)]
     }
     
     func completeTask() {

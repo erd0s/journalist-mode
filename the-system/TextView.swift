@@ -10,7 +10,7 @@ class TextView: NSTextView, NSTextViewDelegate {
         textStorage?.font = defaultFont
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 10
-        typingAttributes = [NSAttributedString.Key.paragraphStyle: style]
+        typingAttributes = [NSAttributedString.Key.paragraphStyle: style, .font: NSFont(name: "SF Pro Text", size: 14)]
         delegate = self
     }
     
