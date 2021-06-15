@@ -25,6 +25,9 @@ extension NSAttributedString {
         
         var lines: [NSAttributedString] = []
         while true {
+            if string == "" {
+                break
+            }
             let foundNewline = (string as NSString).rangeOfCharacter(from: ["\n"], range: NSRange(location: searchStart, length: searchEnd-searchStart))
             
             if foundNewline.location != Int.max {
