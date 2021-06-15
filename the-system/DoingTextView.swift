@@ -42,15 +42,17 @@ struct DoingLine {
 
 class DoingTextView: TextView {
     let indentWidth = 15
-    var content: DoingContent = DoingContent()
+    var content: DoingContent
+    var reflowRequired = false
     
     var observation: NSKeyValueObservation?
     
     required init?(coder: NSCoder) {
+        content = DoingContent()
         content.addLine(line: DoingLine(indent: 0, complete: false))
         super.init(coder: coder)
     }
-    
+        
     override func keyDown(with event: NSEvent) {
         if event.keyCode == kVK_Return && event.modifierFlags.contains(NSEvent.ModifierFlags.shift) {
             completeTask()
@@ -58,6 +60,89 @@ class DoingTextView: TextView {
             newTask(with: event)
         } else {
             super.keyDown(with: event)
+        }
+    }
+    
+    override func shouldChangeText(in affectedCharRange: NSRange, replacementString: String?) -> Bool {
+        // If they're removing lines of text everything needs to be reshuffled
+        if let range = textStorage?.attributedSubstring(from: affectedCharRange).string.rangeOfCharacter(from: .newlines) {
+            if !range.isEmpty {
+                print("looks like there's an affected newline")
+                reflowRequired = true
+            }
+        }
+        return super.shouldChangeText(in: affectedCharRange, replacementString: replacementString)
+    }
+    
+    override func textDidChange(_ notification: Notification) {
+        if reflowRequired {
+            print("looks like we need to reflow")
+            
+            // TODO - This functionality could be neater
+            // TODO - Lots of duplication going on here, but it's not that complicated
+            // Remove any indents that are too indented
+            // This should just clean it up so that indents are at most 15px
+            var searchStart = 0
+            let searchEnd = string.count
+            var runningIndent: CGFloat = 0.0
+            
+            while true {
+                let foundNewline = (string as NSString).rangeOfCharacter(from: ["\n"], range: NSRange(location: searchStart, length: searchEnd-searchStart))
+                
+                if foundNewline.location != Int.max {
+                    let lineRange = NSRange(location: searchStart, length: foundNewline.location - searchStart)
+                    let line = textStorage?.attributedSubstring(from: lineRange)
+                    var indent = line!.getLineIndent()
+                    
+                    // Is this range more than 15 greater than the previous?
+                    if indent > runningIndent + 15 {
+                        // Clean it up
+                        let newString = NSMutableAttributedString(attributedString: line!)
+                        
+                        let style = NSMutableParagraphStyle()
+                        style.lineSpacing = 10
+                        style.firstLineHeadIndent = CGFloat(runningIndent + 15)
+                        style.headIndent = CGFloat(runningIndent + 15)
+                        
+                        newString.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: newString.length))
+                        textStorage?.replaceCharacters(in: lineRange, with: newString)
+//                        shouldChangeText(in: lineRange, replacementString: newString)
+                        
+                        indent = runningIndent + 15
+                    }
+                    
+                    runningIndent = indent
+                    
+                    searchStart = foundNewline.location+1
+                    if searchStart >= searchEnd {
+                        break
+                    }
+                } else {
+                    if searchEnd-searchStart > 0 {
+                        let lineRange = NSRange(location: searchStart, length: searchEnd-searchStart)
+                        let line = textStorage?.attributedSubstring(from: lineRange)
+                        let indent = line!.getLineIndent()
+                        
+                        let newString = NSMutableAttributedString(attributedString: line!)
+                        
+                        let style = NSMutableParagraphStyle()
+                        style.lineSpacing = 10
+                        style.firstLineHeadIndent = CGFloat(runningIndent + 15)
+                        style.headIndent = CGFloat(runningIndent + 15)
+                        
+                        newString.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: newString.length))
+                        textStorage?.replaceCharacters(in: lineRange, with: newString)
+//                        shouldChangeText(in: lineRange, replacementString: newString)
+                    }
+                    break
+                }
+            }
+            
+            // Set up Content to match what we have in the textview
+            updateContent(fromAttributedString: textStorage!)
+                        
+            reflowRequired = false
+            didChangeText()
         }
     }
     
@@ -125,6 +210,7 @@ class DoingTextView: TextView {
         }
         let endOfLine = getEndOfLine(forLineNumber: topOfStack)
         setSelectedRange(endOfLine)
+        didChangeText()
     }
     
     // MARK: - Utility functions
@@ -139,6 +225,11 @@ class DoingTextView: TextView {
             let completed: Bool = attributedString.isLineComplete()
             
             content.addLine(line: DoingLine(indent: Int(indentLevel), complete: completed))
+        }
+        
+        // When we open a new file the content is empty and this doesn't initialise right, fix it
+        if content.lines.count == 0 {
+            content.addLine(line: DoingLine(indent: 0, complete: false))
         }
     }
     

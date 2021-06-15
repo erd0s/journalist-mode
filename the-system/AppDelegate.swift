@@ -29,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let doc = documentController?.documents.first {
             if let swc = doc.windowControllers.first {
                 if let svc = swc.contentViewController as? SingleViewController {
+                    svc.doingTextView.debugIndent()
                     svc.doingTextView.debug()
                 }
             }

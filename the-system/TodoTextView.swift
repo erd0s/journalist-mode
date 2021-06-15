@@ -16,5 +16,6 @@ class TodoTextView: TextView {
         let lineNumber = getLineNumber()
         let lineRange = getLineRange(forLineNumber: lineNumber)
         textStorage?.addAttribute(.strikethroughStyle, value: 2, range: lineRange)
+        didChangeText()
     }
 }
