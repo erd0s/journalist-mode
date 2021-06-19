@@ -100,7 +100,7 @@ class DoingTextView: TextView {
                         let newString = NSMutableAttributedString(attributedString: line!)
                         
                         let style = NSMutableParagraphStyle()
-                        style.lineSpacing = 10
+                        style.paragraphSpacing = 10
                         style.firstLineHeadIndent = CGFloat(runningIndent + 15)
                         style.headIndent = CGFloat(runningIndent + 15)
                         
@@ -125,7 +125,7 @@ class DoingTextView: TextView {
                         let newString = NSMutableAttributedString(attributedString: line!)
                         
                         let style = NSMutableParagraphStyle()
-                        style.lineSpacing = 10
+                        style.paragraphSpacing = 10
                         style.firstLineHeadIndent = CGFloat(runningIndent + 15)
                         style.headIndent = CGFloat(runningIndent + 15)
                         
@@ -163,7 +163,7 @@ class DoingTextView: TextView {
         let indent = (deepestIncomplete + 1) * 15
         
         let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
+        style.paragraphSpacing = 10
         style.firstLineHeadIndent = CGFloat(indent)
         style.headIndent = CGFloat(indent)
         

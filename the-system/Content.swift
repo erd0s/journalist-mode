@@ -45,7 +45,7 @@ class Content: NSObject {
             let indent = NSMutableParagraphStyle()
             indent.headIndent = indentSize
             indent.firstLineHeadIndent = indentSize
-            indent.lineSpacing = 10
+            indent.paragraphSpacing = 10
             
             let length = NSRange(location: 0, length: trimmed.count)
             attributedString.addAttribute(.font, value: defaultFont, range: length)
@@ -74,7 +74,7 @@ class Content: NSObject {
             }
             
             let para = NSMutableParagraphStyle()
-            para.lineSpacing = 10
+            para.paragraphSpacing = 10
             let length = NSRange(location: 0, length: string.count)
             attributedString.addAttribute(.font, value: defaultFont, range: length)
             attributedString.addAttribute(.paragraphStyle, value: para, range: length)
@@ -83,7 +83,7 @@ class Content: NSObject {
         todoString.append(todoAttributedStrings.joined(with: "\n"))
         
         let defaultParagraphStyle = NSMutableParagraphStyle()
-        defaultParagraphStyle.lineSpacing = 10
+        defaultParagraphStyle.paragraphSpacing = 10
         
         // MARK: - Distractions
         

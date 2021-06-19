@@ -9,7 +9,7 @@ class TextView: NSTextView, NSTextViewDelegate {
         super.init(coder: coder)
         textStorage?.font = defaultFont
         let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
+        style.paragraphSpacing = 10
         typingAttributes = [NSAttributedString.Key.paragraphStyle: style, .font: NSFont(name: "SF Pro Text", size: 14)]
         delegate = self
     }
@@ -31,7 +31,7 @@ class TextView: NSTextView, NSTextViewDelegate {
     
     func textDidChange(_ notification: Notification) {
         let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
+        style.paragraphSpacing = 10
         defaultParagraphStyle = style
         textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
     }
