@@ -51,6 +51,12 @@ class DoingTextView: TextView {
         content = DoingContent()
         content.addLine(line: DoingLine(indent: 0, complete: false))
         super.init(coder: coder)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(undoOccurred), name: .NSUndoManagerDidUndoChange, object: nil)
+    }
+    
+    @objc func undoOccurred() {
+        updateContent(fromAttributedString: textStorage!)
     }
         
     override func keyDown(with event: NSEvent) {
