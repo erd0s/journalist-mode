@@ -25,18 +25,14 @@ class DocumentController: NSDocumentController {
 
     func showAll(andActivate: SystemPart) {
         NSRunningApplication.current.activate(options: [NSApplication.ActivationOptions.activateAllWindows, NSApplication.ActivationOptions.activateIgnoringOtherApps])
-        if let firstDoc = documents.first as? Document {
-            firstDoc.enableWindow(type: andActivate)
-        }
-        else {
-            print("Didn't find any windows to activate")
+        documents.forEach { (nsDocument) in
+            if let document = nsDocument as? Document {
+                document.enableWindow(type: andActivate)
+            }
         }
     }
     
     override func openUntitledDocumentAndDisplay(_ displayDocument: Bool) throws -> NSDocument {
-        documents.forEach { (document) in
-            document.close()
-        }
         return try super.openUntitledDocumentAndDisplay(true)
     }
 }
