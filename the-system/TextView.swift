@@ -5,7 +5,11 @@ let defaultFont = NSFont(name: "SF Pro Text", size: 14)
 
 class TextView: NSTextView, NSTextViewDelegate {
     
+    var customUndoManager: UndoManager
+    
     required init?(coder: NSCoder) {
+        customUndoManager = UndoManager()
+        
         super.init(coder: coder)
         textStorage?.font = defaultFont
         let style = NSMutableParagraphStyle()
@@ -34,6 +38,10 @@ class TextView: NSTextView, NSTextViewDelegate {
         style.paragraphSpacing = 10
         defaultParagraphStyle = style
         textStorage?.font = NSFont(name: "SF Pro Text", size: 14)
+    }
+    
+    func undoManager(for view: NSTextView) -> UndoManager? {
+        return customUndoManager
     }
     
     // MARK: - Custom

@@ -198,7 +198,12 @@ class DoingTextView: TextView {
             
             content.lines[getLineNumber()].complete = true
             
-            textStorage?.addAttribute(.strikethroughStyle, value: 2, range: lineRange)
+            let lineToReplace = NSMutableAttributedString(attributedString: textStorage!.attributedSubstring(from: lineRange))
+            lineToReplace.addAttribute(.strikethroughStyle, value: 2, range: NSRange(location: 0, length: lineToReplace.length))
+            if shouldChangeText(in: lineRange, replacementString: lineToReplace.string) {
+                textStorage?.replaceCharacters(in: lineRange, with: lineToReplace)
+                didChangeText()
+            }
         }
         
         // Move the cursor to the top of the stack
