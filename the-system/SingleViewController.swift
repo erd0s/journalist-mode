@@ -25,13 +25,18 @@ class SingleViewController: NSViewController {
     }
     
     func selectPart(type: SystemPart) {
+        let targetTextView: NSTextView
         switch type {
         case .Doing:
-            doingTextView.window?.makeFirstResponder(doingTextView)
+            targetTextView = doingTextView
         case .Todo:
-            todoTextView.window?.makeFirstResponder(todoTextView)
+            targetTextView = todoTextView
         case .Distractions:
-            distractionsTextView.window?.makeFirstResponder(distractionsTextView)
+            targetTextView = distractionsTextView
+        }
+        targetTextView.window?.makeFirstResponder(targetTextView)
+        if let cursorPosition = targetTextView.selectedRanges.first {
+            targetTextView.scrollRangeToVisible(NSRange(location: cursorPosition.rangeValue.location, length: 0))
         }
     }
     
