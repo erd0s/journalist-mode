@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journalist Mode - A Distraction Management System</title>
+    <style>
+        @font-face {
+            font-family: "noto-italic";
+            src: url("font/NotoSans-Italic.woff2");
+        }
+
+        @font-face {
+            font-family: "noto";
+            src: url("font/NotoSans-Regular.woff2");
+        }
+
+        @font-face {
+            font-family: "playfair";
+            src: url("font/PlayfairDisplay-Bold.woff2");
+        }
+        html{
+            text-align: center;
+        }
+        html,body{
+            min-height: 100%;
+        }
+        .logo img {
+            width: 283px;
+            height: 295px;
+        }
+        .title {
+            font-family: 'playfair';
+            font-size: 53px;
+            margin-top: 31px;
+        }
+        .tagline {
+            font-family: 'noto-italic';
+            font-size:23px;
+            margin-top:1px;
+        }
+        .download {
+            font-family: 'noto';
+            font-size:16px;
+            margin-top: 55px;
+            padding-bottom: 20px;
+        }
+        .download a {
+            border: 1px solid black;
+            padding: 18px;
+            border-radius: 7px;
+            color: black;
+        }
+        .outer {
+            display: table;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+            .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+            .inner {
+            margin-left: auto;
+            margin-right: auto;
+            padding:30px 0;
+            /* Whatever width you want */
+        }
+        .what{
+            margin-top: 25px;
+            font-size: 18px;
+            font-family: 'noto';
+        }
+        .what a{
+            color:black;
+        }
+        @media only screen and (max-width: 600px) {
+            .inner {
+                padding: 44px 0;
+            }
+            .logo img {
+                width: 193px;
+                height: auto;
+            }
+            .title {
+                font-size: 35px;
+                margin-top: 26px;
+            }
+            .tagline {
+                font-size: 18px;
+                margin-top: 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="middle">
+            <div class="inner">
+                <div class="logo"><img src="img/logo.png" /></div>
+                <div class="title">Journalist Mode</div>
+                <div class="tagline">A distraction management system</div>
+                <div class="download"><a href="Journalist Mode-0.0.8.zip">Download for macOS (alpha)</a></div>
+                <div class="what"><a href="https://medium.com/@dirkdirk/how-i-get-things-done-journalist-mode-b861e9c088f4">What is this?</a> | <a href="https://medium.com/@dirkdirk/how-i-get-things-done-journalist-mode-b861e9c088f4">Feedback welcome</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
