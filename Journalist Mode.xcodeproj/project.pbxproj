@@ -28,6 +28,7 @@
 		43EB0D5B25EC5365009CDF4D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D5A25EC5365009CDF4D /* Content.swift */; };
 		43EB0D6825EC56D0009CDF4D /* DocumentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D6725EC56D0009CDF4D /* DocumentController.swift */; };
 		43EB0D6B25EC59D4009CDF4D /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EB0D6A25EC59D4009CDF4D /* TextView.swift */; };
+		D7D4B30B29C4D383009E14D1 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = D7D4B30A29C4D383009E14D1 /* fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		43EB0D6725EC56D0009CDF4D /* DocumentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentController.swift; sourceTree = "<group>"; };
 		43EB0D6A25EC59D4009CDF4D /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		43F6FB65264EB1540090CDBB /* SELL.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SELL.md; sourceTree = "<group>"; };
+		D7D4B30A29C4D383009E14D1 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				43F6FB65264EB1540090CDBB /* SELL.md */,
 				4388920627D165A4004AA951 /* README.md */,
+				D7D4B30629C4D378009E14D1 /* Resources */,
 				43EB0D4225EC52FF009CDF4D /* Journalist Mode */,
 				43EB0D4125EC52FF009CDF4D /* Products */,
 			);
@@ -113,6 +116,15 @@
 				43C7D0B8267FDE90001D7748 /* Countdown.swift */,
 			);
 			path = "Journalist Mode";
+			sourceTree = "<group>";
+		};
+		D7D4B30629C4D378009E14D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7D4B30A29C4D383009E14D1 /* fonts */,
+			);
+			name = Resources;
+			path = "Journalist Mode/Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D4B30B29C4D383009E14D1 /* fonts in Resources */,
 				43EB0D4A25EC5300009CDF4D /* Assets.xcassets in Resources */,
 				43EB0D4D25EC5300009CDF4D /* Main.storyboard in Resources */,
 			);
@@ -370,7 +383,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = "the-system/the_system.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Journalist Mode/journalist-mode.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -394,7 +407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = "the-system/the_system.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Journalist Mode/journalist-mode.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
